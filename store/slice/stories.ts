@@ -22,5 +22,5 @@ const storiesSlice = createSlice({
     }
 })
 
-export const {} = storiesSlice.actions
+// export const {} = storiesSlice.actions
 export default storiesSlice.reducer

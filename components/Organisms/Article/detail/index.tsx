@@ -18,7 +18,7 @@ export const ArticleDetail = ({
   useOnClickOutside(settingRef, () => setIsShowDetail(false));
   
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#00000096]">
+    <div className="fixed inset-0 flex items-center justify-center bg-[#00000096] z-[100]">
       <div
         ref={settingRef}
         className="h-[95%] w-[63%] rounded-[4px] bg-c2 flex"

@@ -1,3 +1,4 @@
+"use client"
 import { useRef, useState } from "react";
 import { EMOJI } from "../../../config/emoji";
 import { useOnClickOutside } from "../../../hooks/useClickOutSide";

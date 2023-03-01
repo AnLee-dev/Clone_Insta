@@ -1,3 +1,4 @@
+"use client"
 import React, { useRef, useState } from "react";
 import { AccountAvt } from "../../Molecules/Article/AccountAvt";
 import { NickName } from "../../Molecules/Article/NickName";

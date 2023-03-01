@@ -26,6 +26,7 @@ import SaveIcon from "@/assets/svg/Save_Icon.svg";
 import ChangeModeIcon from "@/assets/svg/Change_Mode_Icon.svg";
 import ActivityIcon from "@/assets/svg/Activity_Icon.svg";
 import ReportIcon from "@/assets/svg/Report_Icon.svg";
+import Link from "next/link";
 
 function NavBar() {
   const sectionSelected = useAppSelector((state) => state.nav.sectionSelected);
@@ -34,6 +35,7 @@ function NavBar() {
   const settingRef = useRef(null);
 
   const setSelect = (section: TSection) => {
+    // Router.push('/reels')
     dispatch(setSectionSelect(section));
   };
   const [check, setCheck] = useState(false);
@@ -130,6 +132,7 @@ function NavBar() {
               </div>
             </div>
             {/* REELS page */}
+            <Link href="reels/" passHref>
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
               onClick={() => setSelect("REELS")}
@@ -153,6 +156,7 @@ function NavBar() {
                 )}
               </div>
             </div>
+            </Link>
             {/* MESSENGER page */}
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"

@@ -1,5 +1,5 @@
-"use client";
-import { useAppSelector } from "../../../store/hooks";
+"use client"
+import { useAppSelector } from "@/store/hooks";
 import { Story } from "./Story";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";

@@ -4,12 +4,12 @@ import { useKeenSlider } from "keen-slider/react";
 import { useState } from "react";
 import { Arrow } from "../../Molecules/Arrow";
 import { INewFeed } from "../../../model/newFeed";
-// import Image from 'next/image';
 
 interface IProps {
   item: INewFeed;
 }
 export const Carousel = ({ item }: IProps): JSX.Element => {
+  const [post, setPost] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -21,6 +21,7 @@ export const Carousel = ({ item }: IProps): JSX.Element => {
       setLoaded(true);
     },
   });
+
 
   return (
     <div className="navigation-wrapper relative">
