@@ -1,39 +1,38 @@
 import { AccountAvt } from "@/components/Molecules/Article/AccountAvt";
 import { NickName } from "@/components/Molecules/Article/NickName";
-import { reels } from "@/mocks/reels";
+import { useElementOnScreen } from "@/hooks/useElementOnScreen";
 import { TReels } from "@/model/reels";
-import { useKeenSlider } from "keen-slider/react";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 export interface IProps {
   reel: TReels;
+  sliderRef: (node: HTMLElement | null) => void;
 }
-export const Video = ({ reel }: IProps): JSX.Element => {
+export const Video = ({ reel, sliderRef }: IProps): JSX.Element => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
+  const [containerRef, isVisible] = useElementOnScreen({
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.85
   });
+const video = document.querySelector("video");
   return (
-    <div className="w-full md:ml-[71px] lg:ml-[71px] xl:ml-[336px] h-screen lg:w-[calc(100vw-71px)] ssm:w-[70%] ssm:m-auto md:w-[100%] flex justify-center items-center keen-slider">
-      <div className="m-auto md:w-[670px] w-full h-[90%] flex justify-center items-center bg-c5 rounded-lg relative keen-slider__slide">
-        <div className="absolute bottom-[20px] left-[20px]">
+    <div className="keen-slider__slide w-full h-screen lg:w-[calc(100vw-71px)] mb:w-[90%] ssm:m-auto md:w-[100%] flex justify-center items-center">
+      <div className="md:w-[670px] w-full h-[90%] flex justify-center items-center bg-c5 rounded-lg">
+        <div className="bottom-[20px] left-[20px]">
           <AccountAvt src={reel.user.profile_pic_url} />
           <NickName nickName={reel.user.username} />
           <button>follow</button>
         </div>
         <div className="w-[65%] h-[100%] flex justify-center items-center">
           <video
+          id="video"
+            ref={containerRef}
             className="w-[100%] h-[100%]"
             src={reel.media.video[0].src}
-            autoPlay
-            muted
+            autoPlay={true}
+            muted={!isVisible}
             controls
             loop
           ></video>
