@@ -2,7 +2,7 @@ import { AccountAvt } from "@/components/Molecules/Article/AccountAvt";
 import { NickName } from "@/components/Molecules/Article/NickName";
 import { useElementOnScreen } from "@/hooks/useElementOnScreen";
 import { TReels } from "@/model/reels";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export interface IProps {
   reel: TReels;
@@ -13,13 +13,13 @@ export const Video = ({ reel, sliderRef }: IProps): JSX.Element => {
   const [loaded, setLoaded] = useState(false);
   const [containerRef, isVisible] = useElementOnScreen({
     root: null,
-    rootMargin: '0px',
-    threshold: 0.85
+    rootMargin: "0px",
+    threshold: 0.85,
   });
-const video = document.querySelector("video");
+  
   return (
     <div className="keen-slider__slide w-full h-screen lg:w-[calc(100vw-71px)] mb:w-[90%] ssm:m-auto md:w-[100%] flex justify-center items-center">
-      <div className="md:w-[670px] w-full h-[90%] flex justify-center items-center bg-c5 rounded-lg">
+      <div ref={containerRef as React.RefObject<HTMLDivElement>} className="md:w-[670px] w-full h-[90%] flex justify-center items-center bg-c5 rounded-lg">
         <div className="bottom-[20px] left-[20px]">
           <AccountAvt src={reel.user.profile_pic_url} />
           <NickName nickName={reel.user.username} />
@@ -27,8 +27,8 @@ const video = document.querySelector("video");
         </div>
         <div className="w-[65%] h-[100%] flex justify-center items-center">
           <video
-          id="video"
-            ref={containerRef}
+            id="video"
+
             className="w-[100%] h-[100%]"
             src={reel.media.video[0].src}
             autoPlay={true}

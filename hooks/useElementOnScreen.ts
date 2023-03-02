@@ -14,7 +14,7 @@ export const useElementOnScreen = (options: any) => {
     if (containerRef.current) observer.observe(containerRef.current);
 
     return () => {
-      if (containerRef.current) observer.unobserve(containerRef.current);
+      if (containerRef.current) observer.unobserve(containerRef.current!);
     };
   }, [containerRef, options]);
   return [containerRef, isVisible];
