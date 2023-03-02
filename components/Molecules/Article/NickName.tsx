@@ -1,8 +1,18 @@
-interface IProps{
-    nickName: string;
+import clsx from "clsx";
+
+interface IProps {
+  nickName: string;
+  className?: string;
 }
-export const NickName = ({nickName}:IProps):JSX.Element => {
+export const NickName = ({ nickName, className }: IProps): JSX.Element => {
   return (
-    <span className="items-center text-[14px] cursor-pointer text-[#262626] font-semibold">{nickName}</span>
-  )
+    <span
+      className={clsx(
+        "items-center text-[14px] cursor-pointer text-[#262626] font-semibold ",
+        className
+      )}
+    >
+      {nickName}
+    </span>
+  );
 };

@@ -8,11 +8,12 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  mode:'jit',
   theme: {
     extend: {
       colors: {
         c1: "#F2F3F5",
-        c2: "#FFFFFF",
+        c2: "cc",
         c3:"#8E8E8E",
         c4:"#262626",
         c5:"#0095F6",

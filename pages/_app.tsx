@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
       <Provider store={store}>
-        <div className="flex w-full [&__svg]:cursor-pointer">
+        <div className="flex w-full [&__svg]:cursor-pointer ">
           <NavMobileTop />
           <NavBar />
           <Component {...pageProps} />

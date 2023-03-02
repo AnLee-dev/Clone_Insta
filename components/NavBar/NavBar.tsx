@@ -58,31 +58,33 @@ function NavBar() {
         <div className="h-[82%]">
           <div className="">
             {/* Home page */}
-            <div
-              className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center "
-              onClick={() => setSelect("HOME")}
-            >
-              <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
-                <div className="">
-                  <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
-                    {sectionSelected === "HOME" ? (
-                      <HomeIconMount />
-                    ) : (
-                      <HomeIconUnmount />
-                    )}
-                  </span>
+            <Link href="/">
+              <div
+                className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center "
+                onClick={() => setSelect("HOME")}
+              >
+                <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
+                  <div className="">
+                    <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
+                      {sectionSelected === "HOME" ? (
+                        <HomeIconMount />
+                      ) : (
+                        <HomeIconUnmount />
+                      )}
+                    </span>
+                  </div>
+                  {sectionSelected === "HOME" ? (
+                    <div className="hidden lg:hidden xl:block pl-[16px] font-bold">
+                      Trang chủ
+                    </div>
+                  ) : (
+                    <div className="hidden lg:hidden xl:block pl-[16px]">
+                      Trang chủ
+                    </div>
+                  )}
                 </div>
-                {sectionSelected === "HOME" ? (
-                  <div className="hidden lg:hidden xl:block pl-[16px] font-bold">
-                    Trang chủ
-                  </div>
-                ) : (
-                  <div className="hidden lg:hidden xl:block pl-[16px]">
-                    Trang chủ
-                  </div>
-                )}
               </div>
-            </div>
+            </Link>
             {/* Search page */}
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
@@ -132,30 +134,30 @@ function NavBar() {
               </div>
             </div>
             {/* REELS page */}
-            <Link href="reels/" passHref>
-            <div
-              className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect("REELS")}
-            >
-              <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
-                <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
+            <Link href="/reels/" passHref>
+              <div
+                className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
+                onClick={() => setSelect("REELS")}
+              >
+                <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
+                  <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
+                    {sectionSelected === "REELS" ? (
+                      <ReelsIconMount />
+                    ) : (
+                      <ReelsIconUnmount />
+                    )}
+                  </span>
                   {sectionSelected === "REELS" ? (
-                    <ReelsIconMount />
+                    <div className="hidden lg:hidden xl:block pl-[16px] font-bold">
+                      Reels
+                    </div>
                   ) : (
-                    <ReelsIconUnmount />
+                    <div className="hidden lg:hidden xl:block pl-[16px]">
+                      Reels
+                    </div>
                   )}
-                </span>
-                {sectionSelected === "REELS" ? (
-                  <div className="hidden lg:hidden xl:block pl-[16px] font-bold">
-                    Reels
-                  </div>
-                ) : (
-                  <div className="hidden lg:hidden xl:block pl-[16px]">
-                    Reels
-                  </div>
-                )}
+                </div>
               </div>
-            </div>
             </Link>
             {/* MESSENGER page */}
             <div
@@ -246,13 +248,13 @@ function NavBar() {
               }}
             >
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
-              <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
-                {sectionSelected === "MORE" ? (
-                  <MoreIconMount />
-                ) : (
-                  <MoreIconUnmount />
-                )}
-</span>
+                <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
+                  {sectionSelected === "MORE" ? (
+                    <MoreIconMount />
+                  ) : (
+                    <MoreIconUnmount />
+                  )}
+                </span>
                 {sectionSelected === "MORE" ? (
                   <div className="hidden lg:hidden xl:block pl-[16px] font-bold">
                     Xem thêm
@@ -273,7 +275,9 @@ function NavBar() {
                   <tbody className="divide-y divide-c1">
                     <tr className="group h-[44px] w-full cursor-pointer hover:bg-c1">
                       <td className="pl-[10px]">Cài đặt</td>
-                      <td  className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110"><SettingIcon /></td>
+                      <td className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
+                        <SettingIcon />
+                      </td>
                     </tr>
                     <tr className="group h-[44px] w-full cursor-pointer hover:bg-c1">
                       <td className="pl-[10px]">Đã lưu</td>
