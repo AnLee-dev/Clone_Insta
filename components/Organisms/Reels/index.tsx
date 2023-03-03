@@ -82,7 +82,7 @@ export const Reel = () => {
       >
         {reels.map((reel, idx) => (
           <div key={idx} ref={(el) => createRefs(el, idx)}>
-            <Video reel={reel} />
+            <Video reel={reel} currentVideoOnScreen={currentVideoOnScreen}/>
           </div>
         ))}
       </div>

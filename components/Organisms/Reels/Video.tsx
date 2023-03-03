@@ -1,12 +1,13 @@
 import { AccountAvt } from "@/components/Molecules/Article/AccountAvt";
 import { NickName } from "@/components/Molecules/Article/NickName";
 import { TReels } from "@/model/reels";
-import React from "react";
+import React, { LegacyRef, MutableRefObject } from "react";
 
 export interface IProps {
   reel: TReels;
+  currentVideoOnScreen: MutableRefObject<HTMLVideoElement | undefined>;
 }
-export const Video = ({ reel }: IProps): JSX.Element => {
+export const Video = ({ reel, currentVideoOnScreen }: IProps): JSX.Element => {
   return (
     <div className="keen-slider__slide w-full h-full lg:w-[calc(100vw-71px)] mb:w-[100%] md:w-[100%] flex justify-center items-center">
       <div
@@ -28,9 +29,7 @@ export const Video = ({ reel }: IProps): JSX.Element => {
             src={reel.media.video[0].src}
             poster={reel.media.video[0].poster}
             autoPlay={true}
-            controls
             loop
-            controlsList="nofullscreen"
           ></video>
         </div>
         <div className="w-[10%] h-[100px] absolute bottom-[200px] right-[40px]">
