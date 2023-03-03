@@ -1,48 +1,91 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import Video from "./Video";
 import { useAppSelector } from "@/store/hooks";
 import { useKeenSlider } from "keen-slider/react";
 
 export const Reel = () => {
   const reels = useAppSelector((state) => state.reels.data);
-  const [sliderRef] = useKeenSlider({
+  const currentVideoOnScreen= useRef<HTMLVideoElement>();
+  const observer = useRef<IntersectionObserver>();
+
+  const containerVideoRefs = useRef<HTMLDivElement[]>([]);
+
+  const [sliderRef, slider] = useKeenSlider({
     loop: false,
     slides: {
-      origin: "auto",
+      origin: "center",
       perView: 1,
-      spacing: 10,
+      spacing: 10
     },
     vertical: true,
   });
 
-const useKey = (key: any, cb: any) => {
-  const callbackRef = useRef(cb);
+  const kBListener = useCallback(
+    (e: KeyboardEvent) => {
+      switch (e.code) {
+        case "ArrowUp":
+          slider.current!.prev()
+          break;
+        case "ArrowDown":
+          slider.current!.next();
+          break;
+        case "KeyM":
+          currentVideoOnScreen.current!.muted = !currentVideoOnScreen.current!.muted
+          break;
+        case "Space":
+          currentVideoOnScreen.current!.paused ? currentVideoOnScreen.current!.play() : currentVideoOnScreen.current!.pause()
+      }
+    },
+    [slider]
+  );
 
   useEffect(() => {
-    callbackRef.current = cb
-  })
+    document.addEventListener("keydown", kBListener);
+    return () => document.removeEventListener("keydown", kBListener);
+  }, [kBListener]);
+
   useEffect(() => {
-    const handle = (e: any) => {
-      if(e.code === key){
-        callbackRef.current(e)
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            currentVideoOnScreen.current = entry.target as HTMLVideoElement;
+            currentVideoOnScreen.current.currentTime = 0;
+            currentVideoOnScreen.current.play();
+          } else {
+            (entry.target as HTMLVideoElement).pause();
+          }
+        });
+      },
+      {
+        threshold: 1,
       }
-    }
-    document.addEventListener("keypress", handle);
-    return () => document.removeEventListener("keypress", handle)
-  }, [key]);
-}
-const handleSpace = () => {
-  console.log('space here');
-}
-useKey("Enter", handleSpace)
+    );
+    containerVideoRefs.current.forEach((containVideoEl: HTMLDivElement) => {
+      observer.current?.observe(
+        containVideoEl.children[0].children[0].children[1].children[0]
+      );
+    });
+    document.addEventListener('keydown', kBListener)
+    return () => document.removeEventListener('keydown', kBListener)
+  }, [kBListener]);
+
+  const createRefs = useCallback((el, idx) => {
+    containerVideoRefs.current[idx] = el;
+  }, []);
+
   return (
-    <div className="h-screen lg:w-[calc(100%-71px)] lg:ml-[71px] xl:w-[calc(100%-250px)] xl:ml-[250px] 2xl:w-[calc(100%-336px)] 2xl:ml-[336px] ssm:w-[100%] md:w-[100%]">
-    <div className="h-screen w-full flex justify-center items-center flex-wrap" ref={sliderRef}>
-      {reels.map((reel, idx) => (
-        <Video key={idx} reel={reel} sliderRef={sliderRef}/>
-      ))}
-    </div>
+    <div className="h-[100%] overflow-hidden w-full lg:w-[calc(100%-71px)] lg:ml-[71px] xl:w-[calc(100%-250px)] xl:ml-[250px] 2xl:w-[calc(100%-336px)] 2xl:ml-[336px] ssm:w-[100%] md:w-[100%]">
+      <div
+        className="h-[100%] w-full flex justify-center items-center flex-wrap"
+        ref={sliderRef}
+      >
+        {reels.map((reel, idx) => (
+          <div key={idx} ref={(el) => createRefs(el, idx)}>
+            <Video reel={reel} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

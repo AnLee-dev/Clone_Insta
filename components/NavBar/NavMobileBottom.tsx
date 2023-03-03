@@ -1,10 +1,12 @@
+import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { TSection, setSectionSelect } from "../../store/slice/nav";
+import { setSectionSelect } from "../../store/slice/nav";
+import { SectionEnum } from "@/constants/routes";
 
 export const NavMobileBottom = () => {
   const sectionSelected = useAppSelector((state) => state.nav.sectionSelected);
   const dispatch = useAppDispatch();
-  const setSelect = (section: TSection) => {
+  const setSelect = (section: SectionEnum) => {
     dispatch(setSectionSelect(section));
   };
 
@@ -12,9 +14,10 @@ export const NavMobileBottom = () => {
     <div className="fixed bottom-0 w-full h-[49px] bg-c2 md:hidden">
       <div className=" flex justify-around">
         {/*Home page*/}
+        <Link href='/'>
         <div
           className="flex group my-[2px] h-[52px] cursor-pointer rounded-[25px] md:flex md:items-center md:justify-center "
-          onClick={() => setSelect("HOME")}
+          onClick={() => setSelect(SectionEnum.HOME)}
         >
           <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
             <div className="">
@@ -54,10 +57,11 @@ export const NavMobileBottom = () => {
             </div>
           </div>
         </div>
+        </Link>
         {/* Search page */}
         <div
           className="flex group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-          onClick={() => setSelect("SEARCH")}
+          onClick={() => setSelect(SectionEnum.SEARCH)}
         >
           <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
             {sectionSelected === "SEARCH" ? (
@@ -126,9 +130,11 @@ export const NavMobileBottom = () => {
           </div>
         </div>
         {/* REELS page */}
+        <Link href='/reels/'>
+        
         <div
           className="flex group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-          onClick={() => setSelect("REELS")}
+          onClick={() => setSelect(SectionEnum.REELS)}
         >
           <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
             {sectionSelected === "REELS" ? (
@@ -205,10 +211,11 @@ export const NavMobileBottom = () => {
             )}
           </div>
         </div>
+        </Link>
         {/* MESSENGER page */}
         <div
           className="flex group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-          onClick={() => setSelect("MESSENGER")}
+          onClick={() => setSelect(SectionEnum.MESSENGER)}
         >
           <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
             {sectionSelected === "MESSENGER" ? (

@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { TSection, setSectionSelect } from "../../store/slice/nav";
+import { setSectionSelect } from "../../store/slice/nav";
 import { useOnClickOutside } from "../../hooks/useClickOutSide";
 import HomeIconMount from "@/assets/svg/Home_Icon_Mount.svg";
 import HomeIconUnmount from "@/assets/svg/Home_Icon_Unmount.svg";
@@ -27,6 +27,7 @@ import ChangeModeIcon from "@/assets/svg/Change_Mode_Icon.svg";
 import ActivityIcon from "@/assets/svg/Activity_Icon.svg";
 import ReportIcon from "@/assets/svg/Report_Icon.svg";
 import Link from "next/link";
+import { SectionEnum } from "@/constants/routes";
 
 function NavBar() {
   const sectionSelected = useAppSelector((state) => state.nav.sectionSelected);
@@ -34,8 +35,7 @@ function NavBar() {
   const dispatch = useAppDispatch();
   const settingRef = useRef(null);
 
-  const setSelect = (section: TSection) => {
-    // Router.push('/reels')
+  const setSelect = (section: SectionEnum) => {
     dispatch(setSectionSelect(section));
   };
   const [check, setCheck] = useState(false);
@@ -61,7 +61,7 @@ function NavBar() {
             <Link href="/">
               <div
                 className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center "
-                onClick={() => setSelect("HOME")}
+                onClick={() => setSelect(SectionEnum.HOME)}
               >
                 <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                   <div className="">
@@ -88,7 +88,7 @@ function NavBar() {
             {/* Search page */}
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect("SEARCH")}
+              onClick={() => setSelect(SectionEnum.SEARCH)}
             >
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
@@ -112,7 +112,7 @@ function NavBar() {
             {/* EXPLORE page */}
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect("EXPLORE")}
+              onClick={() => setSelect(SectionEnum.EXPLORE)}
             >
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
@@ -137,7 +137,7 @@ function NavBar() {
             <Link href="/reels/" passHref>
               <div
                 className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-                onClick={() => setSelect("REELS")}
+                onClick={() => setSelect(SectionEnum.REELS)}
               >
                 <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                   <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
@@ -162,7 +162,7 @@ function NavBar() {
             {/* MESSENGER page */}
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect("MESSENGER")}
+              onClick={() => setSelect(SectionEnum.MESSENGER)}
             >
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
@@ -186,7 +186,7 @@ function NavBar() {
             {/* NOTIFICATION page */}
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect("NOTIFICATION")}
+              onClick={() => setSelect(SectionEnum.NOTIFICATION)}
             >
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
@@ -210,7 +210,7 @@ function NavBar() {
             {/* CREATE page */}
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect("CREATE")}
+              onClick={() => setSelect(SectionEnum.CREATE)}
             >
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
@@ -244,7 +244,7 @@ function NavBar() {
             <div
               className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
               onClick={() => {
-                toggle(), setSelect("MORE");
+                toggle(), setSelect(SectionEnum.MORE);
               }}
             >
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">

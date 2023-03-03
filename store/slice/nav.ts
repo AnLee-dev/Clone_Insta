@@ -1,30 +1,20 @@
+import { SectionEnum } from "@/constants/routes";
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit/dist/createAction";
 
-export type TSection =
-  | "HOME"
-  | "SEARCH"
-  | "EXPLORE"
-  | "REELS"
-  | "MESSENGER"
-  | "NOTIFICATION"
-  | "CREATE"
-  | "PROFILE"
-  | "MORE";
-
 interface IState {
-  sectionSelected: TSection;
+  sectionSelected: SectionEnum;
 }
 
 const initialState: IState = {
-  sectionSelected: "HOME",
+  sectionSelected: SectionEnum.HOME,
 };
 
 export const navSlice = createSlice({
   name: "nav",
   initialState,
   reducers: {
-    setSectionSelect(state, action: PayloadAction<TSection>) {
+    setSectionSelect(state, action: PayloadAction<SectionEnum>) {
       state.sectionSelected = action.payload;
     },
   },
