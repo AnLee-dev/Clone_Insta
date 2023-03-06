@@ -1,34 +1,34 @@
 import { AccountAvt } from "@/components/Molecules/Article/AccountAvt";
 import { NickName } from "@/components/Molecules/Article/NickName";
 import { TReels } from "@/model/reels";
-import React, { LegacyRef, MutableRefObject } from "react";
+import React from "react";
 
 export interface IProps {
   reel: TReels;
-  currentVideoOnScreen: MutableRefObject<HTMLVideoElement | undefined>;
 }
-export const Video = ({ reel, currentVideoOnScreen }: IProps): JSX.Element => {
+export const Video = ({ reel }: IProps): JSX.Element => {
   return (
-    <div className="keen-slider__slide w-full h-full lg:w-[calc(100vw-71px)] mb:w-[100%] md:w-[100%] flex justify-center items-center">
+    <div className="keen-slider__slide w-full h-[100vh] lg:w-[calc(100vw-71px)] mb:w-[100%] md:w-[100%] flex justify-center items-center">
       <div
-        className=" w-full mb:w-[100%] md:w-[670px] h-[100%] md:h-[100%] flex justify-center items-center rounded-lg relative ssm:bg-slate-500"
+        className=" w-full mb:w-[100%] md:w-[670px] h-[100vh] md:h-[95%] flex justify-center items-center rounded-lg relative ssm:bg-c4"
       >
-        <div className="w-[25%] left-[20px] lg:left-[160px] absolute bottom-[100px] flex justify-center items-center gap-2">
+        <div className="w-[25%] absolute left-[20px] bottom-[100px] mb:flex-0 mb:justify-start md:left-0 lg:left-[22%] flex justify-center items-center gap-2">
           <AccountAvt src={reel.user.profile_pic_url} />
-          <div className="flex gap-2 justify-center items-center">
+          <div className="flex gap-2 justify-center items-center md:flex-col-reverse lg:flex-row">
             <NickName nickName={reel.user.username} className="text-c2" />
             <div className="h-[30px] bg-white flex justify-center items-center rounded-lg w-[90px] opacity-50">
               <button className="text-c4">Theo dõi</button>
             </div>
           </div>
         </div>
-        <div className="lg:w-[60%] w-[100%] h-[100%] lg:h-[90%] flex justify-center items-center">
+        <div className="lg:w-[60%] 2xl:w-[60%] w-[100%] h-[100%] flex justify-center items-center">
           <video
             id="video"
-            className="w-[100%] h-[100%] object-fill"
+            className="w-[100%] h-[100%] object-contain"
             src={reel.media.video[0].src}
             poster={reel.media.video[0].poster}
             autoPlay={true}
+            muted
             loop
           ></video>
         </div>

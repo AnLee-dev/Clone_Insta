@@ -75,14 +75,14 @@ export const Reel = () => {
   }, []);
 
   return (
-    <div className="h-[100%] overflow-hidden w-full lg:w-[calc(100%-71px)] lg:ml-[71px] xl:w-[calc(100%-250px)] xl:ml-[250px] 2xl:w-[calc(100%-336px)] 2xl:ml-[336px] ssm:w-[100%] md:w-[100%]">
+    <div className="h-[100vh] overflow-hidden w-full lg:w-[calc(100%-71px)] lg:ml-[71px] xl:w-[calc(100%-250px)] xl:ml-[250px] 2xl:w-[calc(100%-336px)] 2xl:ml-[336px] ssm:w-[100%] md:w-[100%]">
       <div
-        className="h-[100%] w-full flex justify-center items-center flex-wrap"
+        className="h-[100vh] w-full flex justify-center items-center flex-wrap"
         ref={sliderRef}
       >
         {reels.map((reel, idx) => (
           <div key={idx} ref={(el) => createRefs(el, idx)}>
-            <Video reel={reel} currentVideoOnScreen={currentVideoOnScreen}/>
+            <Video reel={reel} />
           </div>
         ))}
       </div>
