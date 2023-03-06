@@ -3,7 +3,6 @@ import { useAppDispatch } from "@/store/hooks";
 
 export const ReactArticle = () => {
   const dispatch = useAppDispatch()
-  
   const fetchCarousel = () => dispatch(toogleLike())
   return (
     <div className="w-full h-[46px]">

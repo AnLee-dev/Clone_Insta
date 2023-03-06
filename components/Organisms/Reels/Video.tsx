@@ -9,9 +9,7 @@ export interface IProps {
 export const Video = ({ reel }: IProps): JSX.Element => {
   return (
     <div className="keen-slider__slide w-full h-[100vh] lg:w-[calc(100vw-71px)] mb:w-[100%] md:w-[100%] flex justify-center items-center">
-      <div
-        className=" w-full mb:w-[100%] md:w-[670px] h-[100vh] md:h-[95%] flex justify-center items-center rounded-lg relative ssm:bg-c4"
-      >
+      <div className=" w-full mb:w-[100%] md:w-[670px] h-[100vh] md:h-[95%] flex justify-center items-center rounded-lg relative ssm:bg-c4">
         <div className="w-[25%] absolute left-[20px] bottom-[100px] mb:flex-0 mb:justify-start md:left-0 lg:left-[22%] flex justify-center items-center gap-2">
           <AccountAvt src={reel.user.profile_pic_url} />
           <div className="flex gap-2 justify-center items-center md:flex-col-reverse lg:flex-row">

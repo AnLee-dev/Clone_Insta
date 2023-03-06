@@ -20,5 +20,5 @@ export const navSlice = createSlice({
   },
 });
 
-export const {setSectionSelect} = navSlice.actions
-export default navSlice.reducer
+export const { setSectionSelect } = navSlice.actions;
+export default navSlice.reducer;

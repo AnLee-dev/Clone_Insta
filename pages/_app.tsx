@@ -6,15 +6,18 @@ import { NavMobileBottom } from "@/components/NavBar/NavMobileBottom";
 import { NavMobileTop } from "@/components/NavBar/NavMobileTop";
 import NavBar from "@/components/NavBar/NavBar";
 import Head from "next/head";
+import CheckRoute from "./CheckRoute";
+import { Fragment } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <Fragment>
       <Head>
         <title>Mystagram</title>
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
       <Provider store={store}>
+        <CheckRoute />
         <div className="flex w-full mb:h-[calc(100vh-49px)] lg:h-[100vh] [&__svg]:cursor-pointer ">
           <NavMobileTop />
           <NavBar />
@@ -22,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </div>
         <NavMobileBottom />
       </Provider>
-    </>
+    </Fragment>
   );
 }
 

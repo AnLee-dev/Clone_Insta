@@ -1,46 +1,14 @@
 "use client";
 import { useRef, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { setSectionSelect } from "../../store/slice/nav";
+import { useAppSelector } from "../../store/hooks";
 import { useOnClickOutside } from "../../hooks/useClickOutSide";
-import HomeIconMount from "@/assets/svg/Home_Icon_Mount.svg";
-import HomeIconUnmount from "@/assets/svg/Home_Icon_Unmount.svg";
-import LogoText from "@/assets/svg/Logo_Text.svg";
-import LogoIcon from "@/assets/svg/Logo_Icon.svg";
-import SearchIconMount from "@/assets/svg/Search_Icon_Mount.svg";
-import SearchIconUnmount from "@/assets/svg/Search_Icon_Unmount.svg";
-import ExploreIconMount from "@/assets/svg/Explore_Icon_Mount.svg";
-import ExploreIconUnmount from "@/assets/svg/Explore_Icon_Unmount.svg";
-import ReelsIconMount from "@/assets/svg/Reels_Icon_Mount.svg";
-import ReelsIconUnmount from "@/assets/svg/Reels_Icon_Unmount.svg";
-import MessegerIconMount from "@/assets/svg/Messeger_Icon_Mount.svg";
-import MessegerIconUnmount from "@/assets/svg/Messeger_Icon_Unmount.svg";
-import NotificationIconMount from "@/assets/svg/Notification_Icon_Mount.svg";
-import NotificationIconUnmount from "@/assets/svg/Notification_Icon_Unmount.svg";
-import CreateIconMount from "@/assets/svg/Create_Icon_Mount.svg";
-import CreateIconUnmount from "@/assets/svg/Create_Icon_Unmount.svg";
-import MoreIconMount from "@/assets/svg/More_Icon_Mount.svg";
-import MoreIconUnmount from "@/assets/svg/More_Icon_Unmount.svg";
-import SettingIcon from "@/assets/svg/Setting_Icon.svg";
-import SaveIcon from "@/assets/svg/Save_Icon.svg";
-import ChangeModeIcon from "@/assets/svg/Change_Mode_Icon.svg";
-import ActivityIcon from "@/assets/svg/Activity_Icon.svg";
-import ReportIcon from "@/assets/svg/Report_Icon.svg";
+import * as ICON from "@/assets/svg";
 import Link from "next/link";
-import { SectionEnum } from "@/constants/routes";
 
 function NavBar() {
   const sectionSelected = useAppSelector((state) => state.nav.sectionSelected);
-
-  const dispatch = useAppDispatch();
   const settingRef = useRef(null);
-
-  const setSelect = (section: SectionEnum) => {
-    dispatch(setSectionSelect(section));
-  };
   const [check, setCheck] = useState(false);
-  const toggle = () => setCheck((prev) => !prev);
-
   useOnClickOutside(settingRef, () => setCheck(false));
 
   return (
@@ -49,27 +17,24 @@ function NavBar() {
         {/* logo Insta */}
         <div className="flex h-[92px] cursor-pointer items-center justify-start px-[20px]">
           <div className="hidden xl:block">
-            <LogoText />
+            <ICON.LogoText />
           </div>
           <div className="hidden md:block lg:block xl:hidden">
-            <LogoIcon />
+            <ICON.LogoIcon />
           </div>
         </div>
         <div className="h-[82%]">
           <div className="">
             {/* Home page */}
             <Link href="/">
-              <div
-                className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center "
-                onClick={() => setSelect(SectionEnum.HOME)}
-              >
+              <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center ">
                 <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                   <div className="">
                     <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
                       {sectionSelected === "HOME" ? (
-                        <HomeIconMount />
+                        <ICON.HomeIconMount />
                       ) : (
-                        <HomeIconUnmount />
+                        <ICON.HomeIconUnmount />
                       )}
                     </span>
                   </div>
@@ -86,16 +51,13 @@ function NavBar() {
               </div>
             </Link>
             {/* Search page */}
-            <div
-              className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect(SectionEnum.SEARCH)}
-            >
+            <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
                   {sectionSelected === "SEARCH" ? (
-                    <SearchIconMount />
+                    <ICON.SearchIconMount />
                   ) : (
-                    <SearchIconUnmount />
+                    <ICON.SearchIconUnmount />
                   )}
                 </span>
                 {sectionSelected === "SEARCH" ? (
@@ -110,16 +72,13 @@ function NavBar() {
               </div>
             </div>
             {/* EXPLORE page */}
-            <div
-              className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect(SectionEnum.EXPLORE)}
-            >
+            <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
                   {sectionSelected === "EXPLORE" ? (
-                    <ExploreIconMount />
+                    <ICON.ExploreIconMount />
                   ) : (
-                    <ExploreIconUnmount />
+                    <ICON.ExploreIconUnmount />
                   )}
                 </span>
                 {sectionSelected === "EXPLORE" ? (
@@ -135,19 +94,16 @@ function NavBar() {
             </div>
             {/* REELS page */}
             <Link href="/reels/" passHref>
-              <div
-                className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-                onClick={() => setSelect(SectionEnum.REELS)}
-              >
+              <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
                 <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                   <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
-                    {sectionSelected === "REELS" ? (
-                      <ReelsIconMount />
+                    {sectionSelected.toUpperCase() === "REELS" ? (
+                      <ICON.ReelsIconMount />
                     ) : (
-                      <ReelsIconUnmount />
+                      <ICON.ReelsIconUnmount />
                     )}
                   </span>
-                  {sectionSelected === "REELS" ? (
+                  {sectionSelected.toUpperCase() === "REELS" ? (
                     <div className="hidden lg:hidden xl:block pl-[16px] font-bold">
                       Reels
                     </div>
@@ -160,16 +116,13 @@ function NavBar() {
               </div>
             </Link>
             {/* MESSENGER page */}
-            <div
-              className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect(SectionEnum.MESSENGER)}
-            >
+            <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
                   {sectionSelected === "MESSENGER" ? (
-                    <MessegerIconMount />
+                    <ICON.MessegerIconMount />
                   ) : (
-                    <MessegerIconUnmount />
+                    <ICON.MessegerIconUnmount />
                   )}
                 </span>
                 {sectionSelected === "MESSENGER" ? (
@@ -184,16 +137,13 @@ function NavBar() {
               </div>
             </div>
             {/* NOTIFICATION page */}
-            <div
-              className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect(SectionEnum.NOTIFICATION)}
-            >
+            <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
                   {sectionSelected === "NOTIFICATION" ? (
-                    <NotificationIconMount />
+                    <ICON.NotificationIconMount />
                   ) : (
-                    <NotificationIconUnmount />
+                    <ICON.NotificationIconUnmount />
                   )}
                 </span>
                 {sectionSelected === "NOTIFICATION" ? (
@@ -208,16 +158,13 @@ function NavBar() {
               </div>
             </div>
             {/* CREATE page */}
-            <div
-              className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => setSelect(SectionEnum.CREATE)}
-            >
+            <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
                   {sectionSelected === "CREATE" ? (
-                    <CreateIconMount />
+                    <ICON.CreateIconMount />
                   ) : (
-                    <CreateIconUnmount />
+                    <ICON.CreateIconUnmount />
                   )}
                 </span>
                 {sectionSelected === "CREATE" ? (
@@ -241,18 +188,13 @@ function NavBar() {
         </div>
         <div className="">
           <div className="relative my-[2px] h-[52px] rounded-[25px]">
-            <div
-              className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center"
-              onClick={() => {
-                toggle(), setSelect(SectionEnum.MORE);
-              }}
-            >
+            <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
                   {sectionSelected === "MORE" ? (
-                    <MoreIconMount />
+                    <ICON.MoreIconMount />
                   ) : (
-                    <MoreIconUnmount />
+                    <ICON.MoreIconUnmount />
                   )}
                 </span>
                 {sectionSelected === "MORE" ? (
@@ -276,31 +218,31 @@ function NavBar() {
                     <tr className="group h-[44px] w-full cursor-pointer hover:bg-c1">
                       <td className="pl-[10px]">Cài đặt</td>
                       <td className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
-                        <SettingIcon />
+                        <ICON.SettingIcon />
                       </td>
                     </tr>
                     <tr className="group h-[44px] w-full cursor-pointer hover:bg-c1">
                       <td className="pl-[10px]">Đã lưu</td>
                       <td className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
-                        <SaveIcon />
+                        <ICON.SaveIcon />
                       </td>
                     </tr>
                     <tr className="group h-[44px] w-full cursor-pointer hover:bg-c1">
                       <td className="pl-[10px]">Chuyển chế độ</td>
                       <td className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
-                        <ChangeModeIcon />
+                        <ICON.ChangeModeIcon />
                       </td>
                     </tr>
                     <tr className="group h-[44px] w-full cursor-pointer hover:bg-c1">
                       <td className="pl-[10px]">Hoạt động của bạn</td>
                       <td className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
-                        <ActivityIcon />
+                        <ICON.ActivityIcon />
                       </td>
                     </tr>
                     <tr className="group h-[44px] w-full cursor-pointer hover:bg-c1">
                       <td className="pl-[10px]">Báo cáo sự cố</td>
                       <td className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
-                        <ReportIcon />
+                        <ICON.ReportIcon />
                       </td>
                     </tr>
                     <tr className="group h-[44px] w-full cursor-pointer hover:bg-c1">
