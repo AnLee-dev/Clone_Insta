@@ -1,7 +1,7 @@
 export const new_feed = [
   {
     created_at: "2023-02-10 21:20",
-    id: "45gffdafffdfdddds",
+    id: "46gffdafffdfdddds",
     location: {
       short_name: "Copenhagen",
     },
@@ -236,7 +236,7 @@ export const new_feed = [
         outgoing_request: false,
       },
     },
-    like_count: 3400,
+    like_count: 0,
     has_liked: false,
     caption_text: "Mèo xinhhhhhhhhhhhh",
     is_seen: true,
@@ -377,7 +377,7 @@ export const new_feed = [
         outgoing_request: false,
       },
     },
-    like_count: 3400,
+    like_count: 0,
     has_liked: false,
     caption_text: "Mèo xinhhhhhhhhhhhh",
     is_seen: true,

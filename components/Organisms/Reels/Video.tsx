@@ -1,12 +1,15 @@
 import { AccountAvt } from "@/components/Molecules/Article/AccountAvt";
 import { NickName } from "@/components/Molecules/Article/NickName";
 import { TReels } from "@/model/reels";
-import React from "react";
-
+import React, { MutableRefObject } from "react";
+import { useRouter } from "next/router";
+import { KeenSliderHooks, KeenSliderInstance } from "keen-slider";
 export interface IProps {
   reel: TReels;
+  slider?: MutableRefObject<KeenSliderInstance<{}, {}, KeenSliderHooks> | null>
 }
 export const Video = ({ reel }: IProps): JSX.Element => {
+
   return (
     <div className="keen-slider__slide w-full h-[100vh] lg:w-[calc(100vw-71px)] mb:w-[100%] md:w-[100%] flex justify-center items-center">
       <div className=" w-full mb:w-[100%] md:w-[670px] h-[100vh] md:h-[95%] flex justify-center items-center rounded-lg relative ssm:bg-c4">
@@ -23,10 +26,10 @@ export const Video = ({ reel }: IProps): JSX.Element => {
           <video
             id="video"
             className="w-[100%] h-[100%] object-contain"
-            src={reel.media.video[0].src}
-            poster={reel.media.video[0].poster}
+            src={reel?.media?.video[0]?.src}
+            poster={reel?.media?.video[0]?.poster}
             autoPlay={true}
-            muted
+            muted={true}
             loop
           ></video>
         </div>

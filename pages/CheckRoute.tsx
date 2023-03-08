@@ -17,7 +17,7 @@ function CheckRoute(): JSX.Element {
       case "SEARCH":
         dispatch(setSectionSelect(SectionEnum.SEARCH));
         break;
-      case "EXPLORE":
+      case "explore":
         dispatch(setSectionSelect(SectionEnum.EXPLORE));
         break;
       case "reels":

@@ -21,9 +21,9 @@ export const ArticleDetailMedia = ({ item }: IProps): JSX.Element => {
   });
 
   return (
-    <div className="navigation-wrapper relative flex h-[100%] w-[55%] items-center justify-center bg-c3">
-      <div className="keen-slider flex" ref={sliderRef}>
-        <div className="flex items-center justify-center">
+    <div className="mb:hidden md:block navigation-wrapper relative flex h-[100%] w-[55%] items-center justify-center bg-c3">
+      <div className="keen-slider flex h-[100%]" ref={sliderRef}>
+        <div className="flex items-center justify-center h-[100%]">
           {item.carousel_media.images.map((i, idx) => {
             return (
               <img
@@ -35,7 +35,7 @@ export const ArticleDetailMedia = ({ item }: IProps): JSX.Element => {
             )
           })}
           {loaded && instanceRef.current && (
-            <div className="dots absolute bottom-0 left-[50%] flex items-center justify-center py-[10px]">
+            <div className="dots absolute bottom-0 right-[50%] flex items-center justify-center py-[10px] translate-x-1/2">
               {[
                 ...Array(
                   instanceRef.current.track.details.slides.length

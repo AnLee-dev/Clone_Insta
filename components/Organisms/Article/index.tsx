@@ -21,7 +21,7 @@ export const Article = () => {
           />
           <Carousel item={item} />
           <div className="w-full">
-            <ReactArticle />
+            <ReactArticle item={item}/>
             <Like like={item.like_count} />
             <Caption nickName={item.user.username} caption={item.caption_text} />
             <Comments item={item} />

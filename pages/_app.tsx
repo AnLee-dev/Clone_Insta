@@ -18,8 +18,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Provider store={store}>
         <CheckRoute />
+        <NavMobileTop />
         <div className="flex w-full mb:h-[calc(100vh-49px)] lg:h-[100vh] [&__svg]:cursor-pointer ">
-          <NavMobileTop />
           <NavBar />
           <Component {...pageProps} />
         </div>

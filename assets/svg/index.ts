@@ -10,8 +10,9 @@ import ReelsIconMount from "./Reels_Icon_Mount.svg";
 import ReelsIconUnmount from "./Reels_Icon_Unmount.svg";
 import MessegerIconMount from "./Messeger_Icon_Mount.svg";
 import MessegerIconUnmount from "./Messeger_Icon_Unmount.svg";
-import NotificationIconMount from "./Notification_Icon_Mount.svg";
-import NotificationIconUnmount from "./Notification_Icon_Unmount.svg";
+import HeartIconMount from "./Heart_Icon_Mount.svg";
+import HeartIconUnmount from "./Heart_Icon_Unmount.svg";
+import HeartIconLike from "./Heart_Icon_Like.svg";
 import CreateIconMount from "./Create_Icon_Mount.svg";
 import CreateIconUnmount from "./Create_Icon_Unmount.svg";
 import MoreIconMount from "./More_Icon_Mount.svg";
@@ -21,6 +22,10 @@ import SaveIcon from "./Save_Icon.svg";
 import ChangeModeIcon from "./Change_Mode_Icon.svg";
 import ActivityIcon from "./Activity_Icon.svg";
 import ReportIcon from "./Report_Icon.svg";
+import BackIcon from "./Back_Icon.svg";
+import ShareIcon from "./Share_Icon.svg";
+import ChatIcon from "./Chat_Icon.svg";
+import Emoji from "./Emoji.svg"
 
 export {
   HomeIconMount,
@@ -35,8 +40,9 @@ export {
   ReelsIconUnmount,
   MessegerIconMount,
   MessegerIconUnmount,
-  NotificationIconMount,
-  NotificationIconUnmount,
+  HeartIconMount,
+  HeartIconUnmount,
+  HeartIconLike,
   CreateIconMount,
   CreateIconUnmount,
   MoreIconMount,
@@ -45,5 +51,9 @@ export {
   SaveIcon,
   ChangeModeIcon,
   ActivityIcon,
-  ReportIcon
+  ReportIcon,
+  BackIcon,
+  ShareIcon,
+  ChatIcon,
+  Emoji
 };

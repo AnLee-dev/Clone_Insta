@@ -3,6 +3,7 @@ import navReducer from './slice/nav'
 import storiesReducer from './slice/stories'
 import accountUserReducer from './slice/switchAccounts'
 import newFeedReducer from './slice/new_feed'
+import exploreReducer from './slice/explore'
 import { createWrapper } from 'next-redux-wrapper';
 import reelsReducer from './slice/reels';
 
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     stories :storiesReducer,
     accountUser: accountUserReducer,
     newFeed: newFeedReducer,
-    reels: reelsReducer
+    reels: reelsReducer,
+    explore: exploreReducer
 })
 
 export const store = configureStore({

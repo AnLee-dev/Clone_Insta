@@ -8,28 +8,28 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  mode:'jit',
+  mode: "jit",
   theme: {
     extend: {
       colors: {
         c1: "#F2F3F5",
         c2: "#FFFFFF",
-        c3:"#8E8E8E",
-        c4:"#262626",
-        c5:"#0095F6",
-        c6:"#ED4956",
-        c7:"#C7C7C7",
-        c8:'#cbcbcb'
+        c3: "#8E8E8E",
+        c4: "#262626",
+        c5: "#0095F6",
+        c6: "#ED4956",
+        c7: "#C7C7C7",
+        c8: "#cbcbcb",
+        c9: "#EFEFEF",
       },
       dropShadow: {
         xl: "0 0 5px rgba(0, 0, 0, 0.0975)",
       },
-      screens:{
-        'mb':'360px',
-        'ssm': '470px',
+      screens: {
+        mb: "360px",
+        ssm: "470px",
+      },
     },
-    },
-
   },
   plugins: [],
-}
+};

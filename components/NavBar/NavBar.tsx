@@ -72,6 +72,7 @@ function NavBar() {
               </div>
             </div>
             {/* EXPLORE page */}
+            <Link href="/explore/">
             <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
@@ -92,6 +93,7 @@ function NavBar() {
                 )}
               </div>
             </div>
+            </Link>
             {/* REELS page */}
             <Link href="/reels/" passHref>
               <div className="group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
@@ -141,9 +143,9 @@ function NavBar() {
               <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
                 <span className="group-hover:[&>svg]:duration-300 group-hover:[&>svg]:ease-in-out group-hover:[&>svg]:scale-110">
                   {sectionSelected === "NOTIFICATION" ? (
-                    <ICON.NotificationIconMount />
+                    <ICON.HeartIconMount />
                   ) : (
-                    <ICON.NotificationIconUnmount />
+                    <ICON.HeartIconUnmount />
                   )}
                 </span>
                 {sectionSelected === "NOTIFICATION" ? (

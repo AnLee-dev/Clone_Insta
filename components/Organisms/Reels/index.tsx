@@ -2,20 +2,21 @@ import { useCallback, useEffect, useRef } from "react";
 import Video from "./Video";
 import { useAppSelector } from "@/store/hooks";
 import { useKeenSlider } from "keen-slider/react";
+import { useRouter } from "next/router";
 
 export const Reel = () => {
   const reels = useAppSelector((state) => state.reels.data);
-  const currentVideoOnScreen= useRef<HTMLVideoElement>();
+  const currentVideoOnScreen = useRef<HTMLVideoElement>();
   const observer = useRef<IntersectionObserver>();
 
   const containerVideoRefs = useRef<HTMLDivElement[]>([]);
-
+  const router = useRouter();
   const [sliderRef, slider] = useKeenSlider({
     loop: false,
     slides: {
       origin: "center",
       perView: 1,
-      spacing: 10
+      spacing: 10,
     },
     vertical: true,
   });
@@ -24,20 +25,24 @@ export const Reel = () => {
     (e: KeyboardEvent) => {
       switch (e.code) {
         case "ArrowUp":
-          slider.current!.prev()
+          slider.current!.prev();
           break;
         case "ArrowDown":
           slider.current!.next();
           break;
         case "KeyM":
-          currentVideoOnScreen.current!.muted = !currentVideoOnScreen.current!.muted
+          currentVideoOnScreen.current!.muted =
+            !currentVideoOnScreen.current!.muted;
           break;
         case "Space":
-          currentVideoOnScreen.current!.paused ? currentVideoOnScreen.current!.play() : currentVideoOnScreen.current!.pause()
+          currentVideoOnScreen.current!.paused
+            ? currentVideoOnScreen.current!.play()
+            : currentVideoOnScreen.current!.pause();
       }
     },
     [slider]
   );
+  console.log("slider", slider);
 
   useEffect(() => {
     document.addEventListener("keydown", kBListener);
@@ -66,8 +71,8 @@ export const Reel = () => {
         containVideoEl.children[0].children[0].children[1].children[0]
       );
     });
-    document.addEventListener('keydown', kBListener)
-    return () => document.removeEventListener('keydown', kBListener)
+    document.addEventListener("keydown", kBListener);
+    return () => document.removeEventListener("keydown", kBListener);
   }, [kBListener]);
 
   const createRefs = useCallback((el, idx) => {
@@ -82,7 +87,7 @@ export const Reel = () => {
       >
         {reels.map((reel, idx) => (
           <div key={idx} ref={(el) => createRefs(el, idx)}>
-            <Video reel={reel} />
+            <Video reel={reel} slider={slider} />
           </div>
         ))}
       </div>
