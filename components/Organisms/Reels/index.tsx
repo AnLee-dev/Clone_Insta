@@ -3,9 +3,12 @@ import Video from "./Video";
 import { useAppSelector } from "@/store/hooks";
 import { useKeenSlider } from "keen-slider/react";
 import { useRouter } from "next/router";
+import { TReels } from "@/model/reels";
 
-export const Reel = () => {
-  const reels = useAppSelector((state) => state.reels.data);
+interface IProp {
+  reels: TReels[]
+}
+export const Reel = ({reels}:IProp):JSX.Element => {
   const currentVideoOnScreen = useRef<HTMLVideoElement>();
   const observer = useRef<IntersectionObserver>();
 
@@ -78,7 +81,9 @@ export const Reel = () => {
   const createRefs = useCallback((el, idx) => {
     containerVideoRefs.current[idx] = el;
   }, []);
-
+  // useEffect(() => {
+  //   router.push(`/reels/${currentVideoOnScreen.current?.getAttribute('data-id-reel')}`)
+  //  },[currentVideoOnScreen, router])
   return (
     <div className="h-[100vh] overflow-hidden w-full lg:w-[calc(100%-71px)] lg:ml-[71px] xl:w-[calc(100%-250px)] xl:ml-[250px] 2xl:w-[calc(100%-336px)] 2xl:ml-[336px] ssm:w-[100%] md:w-[100%]">
       <div

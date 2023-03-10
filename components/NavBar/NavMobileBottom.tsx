@@ -22,6 +22,7 @@ export const NavMobileBottom = () => {
           </div>
         </Link>
         {/* Search page */}
+        <Link href='/explore/'>
         <div className="flex group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">
           <div className="m-auto flex lg:w-5/6 lg:items-center lg:justify-center xl:items-start xl:justify-start">
             {sectionSelected === "SEARCH" ? (
@@ -31,6 +32,7 @@ export const NavMobileBottom = () => {
             )}
           </div>
         </div>
+        </Link>
         {/* REELS page */}
         <Link href="/reels/">
           <div className="flex group my-[2px] h-[52px] cursor-pointer rounded-[25px] hover:bg-c1 md:flex md:items-center md:justify-center">

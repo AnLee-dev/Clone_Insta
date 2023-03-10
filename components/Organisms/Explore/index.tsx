@@ -12,15 +12,15 @@ export const Explore = ({item, idx}: IProps):JSX.Element => {
         <div className='w-[80%]'>
         {(idx + 1) % 2 === 0 && (
         <div className='mt-[2px] grid w-full grid-cols-3 gap-[2px] md:mt-[15px] md:gap-[15px]'>
-          <DetailExplore src={item[0].src} isBig/>
-          <DetailExplore  src={item[1].src}/>
-          <DetailExplore  src={item[2].src}/>
+          <DetailExplore src={item[0]?.src} isBig/>
+          <DetailExplore  src={item[1]?.src}/>
+          <DetailExplore  src={item[2]?.src}/>
         </div>
         )}
         <div className='mt-[2px] grid w-full grid-cols-3 gap-[2px] md:mt-[15px] md:gap-[15px]'>
-          <DetailExplore  src={item[0].src}/>
-          <DetailExplore  src={item[1].src} isBig/>
-          <DetailExplore  src={item[2].src}/>
+          <DetailExplore  src={item[0]?.src}/>
+          <DetailExplore  src={item[1]?.src} isBig/>
+          <DetailExplore  src={item[2]?.src}/>
         </div>
         </div>
     </div>
