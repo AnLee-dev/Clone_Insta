@@ -1,19 +1,16 @@
 import { useCallback, useEffect, useRef } from "react";
 import Video from "./Video";
-import { useAppSelector } from "@/store/hooks";
 import { useKeenSlider } from "keen-slider/react";
-import { useRouter } from "next/router";
 import { TReels } from "@/model/reels";
 
 interface IProp {
-  reels: TReels[]
+  reels: TReels[];
 }
-export const Reel = ({reels}:IProp):JSX.Element => {
+export const Reel = ({ reels }: IProp): JSX.Element => {
   const currentVideoOnScreen = useRef<HTMLVideoElement>();
   const observer = useRef<IntersectionObserver>();
 
   const containerVideoRefs = useRef<HTMLDivElement[]>([]);
-  const router = useRouter();
   const [sliderRef, slider] = useKeenSlider({
     loop: false,
     slides: {
@@ -28,10 +25,10 @@ export const Reel = ({reels}:IProp):JSX.Element => {
     (e: KeyboardEvent) => {
       switch (e.code) {
         case "ArrowUp":
-          slider.current!.prev();
+          slider?.current!.prev();
           break;
         case "ArrowDown":
-          slider.current!.next();
+          slider?.current!.next();
           break;
         case "KeyM":
           currentVideoOnScreen.current!.muted =
@@ -45,7 +42,6 @@ export const Reel = ({reels}:IProp):JSX.Element => {
     },
     [slider]
   );
-  console.log("slider", slider);
 
   useEffect(() => {
     document.addEventListener("keydown", kBListener);
@@ -81,9 +77,9 @@ export const Reel = ({reels}:IProp):JSX.Element => {
   const createRefs = useCallback((el, idx) => {
     containerVideoRefs.current[idx] = el;
   }, []);
-  // useEffect(() => {
-  //   router.push(`/reels/${currentVideoOnScreen.current?.getAttribute('data-id-reel')}`)
-  //  },[currentVideoOnScreen, router])
+
+  console.log('reel nho', reels);
+  
   return (
     <div className="h-[100vh] overflow-hidden w-full lg:w-[calc(100%-71px)] lg:ml-[71px] xl:w-[calc(100%-250px)] xl:ml-[250px] 2xl:w-[calc(100%-336px)] 2xl:ml-[336px] ssm:w-[100%] md:w-[100%]">
       <div
@@ -92,7 +88,7 @@ export const Reel = ({reels}:IProp):JSX.Element => {
       >
         {reels.map((reel, idx) => (
           <div key={idx} ref={(el) => createRefs(el, idx)}>
-            <Video reel={reel} slider={slider} />
+            <Video reel={reel} />
           </div>
         ))}
       </div>

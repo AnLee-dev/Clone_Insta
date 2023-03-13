@@ -5,7 +5,17 @@ export const explore = [
         likeCount: 20
     },
     {
+        src: '/images/post1.jpg',
+        commentCount: 20,
+        likeCount: 20
+    },
+    {
         src: '/images/cat.jpg',
+        commentCount: 20,
+        likeCount: 20
+    },
+    {
+        src: '/images/unne.jpg',
         commentCount: 20,
         likeCount: 20
     },
@@ -20,27 +30,17 @@ export const explore = [
         likeCount: 20
     },
     {
-        src: '/images/cat.jpg',
+        src: '/images/sky1.jpg',
         commentCount: 20,
         likeCount: 20
     },
     {
-        src: '/images/cat.jpg',
+        src: '/images/sky.jpg',
         commentCount: 20,
         likeCount: 20
     },
     {
-        src: '/images/cat.jpg',
-        commentCount: 20,
-        likeCount: 20
-    },
-    {
-        src: '/images/cat.jpg',
-        commentCount: 20,
-        likeCount: 20
-    },
-    {
-        src: '/images/cat.jpg',
+        src: '/images/una1.jpg',
         commentCount: 20,
         likeCount: 20
     },

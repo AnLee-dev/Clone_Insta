@@ -1,12 +1,10 @@
 import { AccountAvt } from "@/components/Molecules/Article/AccountAvt";
 import { NickName } from "@/components/Molecules/Article/NickName";
 import { TReels } from "@/model/reels";
-import React, { MutableRefObject } from "react";
+import React from "react";
 import * as ICON from "assets/svg";
-import { KeenSliderHooks, KeenSliderInstance } from "keen-slider";
 export interface IProps {
   reel: TReels;
-  slider?: MutableRefObject<KeenSliderInstance<{}, {}, KeenSliderHooks> | null>;
 }
 export const Video = ({ reel }: IProps): JSX.Element => {
   return (
@@ -37,19 +35,19 @@ export const Video = ({ reel }: IProps): JSX.Element => {
           <div className="items-center justify-between h-[100px]">
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-1 justify-center items-center">
-                <span className="">
+                <span className="[&>svg]:fill-c2">
                   <ICON.HeartIconUnmount />
                 </span>
                 <p className="truncate text-c2">{20} N</p>
               </div>
               <div className="flex flex-col gap-1 justify-center items-center">
-                <span className="">
+                <span className="[&>svg]:text-c2">
                   <ICON.ChatIcon />
                 </span>
                 <p className="truncate text-c2">{600}</p>
               </div>
               <div className="flex flex-col gap-1 justify-center items-center">
-                <span className="">
+                <span className="[&>svg]:text-c2">
                   <ICON.ShareIcon />
                 </span>
               </div>

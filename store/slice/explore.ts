@@ -1,14 +1,14 @@
-import { explore } from "@/mocks/explore";
+import { TExplore } from "@/model/explore";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface IExplore {
-  data: any;
+  data: TExplore[];
   hasErr: boolean;
   message: "";
 }
 
 const initialState: IExplore = {
-  data: [...explore],
+  data: [],
   hasErr: false,
   message: "",
 };
@@ -16,7 +16,12 @@ const initialState: IExplore = {
 const exploreSlice = createSlice({
   name: "explore",
   initialState,
-  reducers: {},
+  reducers: {
+    save: (state, action) => {
+      state.data = action.payload;
+    },
+  },
 });
 
+export const { save } = exploreSlice.actions;
 export default exploreSlice.reducer;
