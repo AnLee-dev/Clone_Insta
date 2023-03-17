@@ -18,7 +18,7 @@ export const CommentDetail = ({ item }: IProps): JSX.Element => {
   useOnClickOutside(settingRef, () => setIsShowOptionsDetailComment(false));
   return (
     <Fragment>
-      {item.comments.map((item, idx) => (
+      {item?.comments.map((item, idx) => (
         <div className="mb-[16px] flex w-full items-center justify-center" key={idx}>
           <div className="group flex w-full justify-between">
             <div className=" flex w-full">

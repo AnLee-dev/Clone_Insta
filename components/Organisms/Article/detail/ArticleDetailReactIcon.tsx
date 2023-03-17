@@ -38,8 +38,8 @@ export const ArticleDetailReactIcon = ({ item }: IProps): JSX.Element => {
           <ReactArticle item={item} />
         </div>
         <div className="py-[6px]">
-          <Like like={item.like_count} />
-          <PostTime time={item.created_at} />
+          <Like like={item?.like_count} />
+          <PostTime time={item?.created_at} />
         </div>
       </div>
       <div>

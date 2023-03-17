@@ -38,7 +38,7 @@ export const ArticleDetailMedia = ({ item }: IProps): JSX.Element => {
             <div className="dots absolute bottom-0 right-[50%] flex items-center justify-center py-[10px] translate-x-1/2">
               {[
                 ...Array(
-                  instanceRef.current.track.details.slides.length
+                  instanceRef.current.track.details?.slides.length
                 ).keys(),
               ].map((idx) => {
                 return (

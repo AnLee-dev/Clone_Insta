@@ -25,7 +25,7 @@ export const MobileComment = ({ item }: IProp): JSX.Element => {
       </div>
       <div className="py-[8px] px-[16px] flex justify-between bg-c9">
         <div className="w-[20%]">
-          <AccountAvt src={item.user.profile_pic_url} />
+          <AccountAvt src={item?.user.profile_pic_url} />
         </div>
         <div className="relative w-[80%] flex justify-center items-center">
           <input
@@ -49,12 +49,12 @@ export const MobileComment = ({ item }: IProp): JSX.Element => {
             <div className="ml-[10px] w-[80%] items-center">
               <div className="w-full">
                 <Caption
-                  nickName={item.user.username}
-                  caption={item.caption_text}
+                  nickName={item?.user.username}
+                  caption={item?.caption_text}
                 />
               </div>
               <div>
-                <PostTime time={item.created_at} className="!text-[12px]" />
+                <PostTime time={item?.created_at} className="!text-[12px]" />
               </div>
             </div>
           </div>

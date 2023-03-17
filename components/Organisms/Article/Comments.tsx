@@ -4,6 +4,7 @@ import { EMOJI } from "../../../config/emoji";
 import { useOnClickOutside } from "../../../hooks/useClickOutSide";
 import { ArticleDetail } from "./detail";
 import { INewFeed } from "../../../model/newFeed";
+import Link from "next/link";
 export interface IProps {
   item: INewFeed;
 }
@@ -23,16 +24,11 @@ export const Comments = ({ item }: IProps, { children }: any): JSX.Element => {
       <div className="">
         {item.comments.length > 0 && (
           <div className="cursor-pointer">
-            <span onClick={toggle}>
+            <Link href={`/p/${item.id}`}>
+            <span>
               Xem tất cả {item.comments.length} bình luận
             </span>
-            {isShowDetail && (
-              <ArticleDetail
-                item={item}
-                setIsShowDetail={setIsShowDetail}
-                settingRef={settingRef}
-              />
-            )}
+            </Link>
           </div>
         )}
       </div>

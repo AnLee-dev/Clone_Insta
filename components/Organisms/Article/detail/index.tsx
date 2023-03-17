@@ -4,17 +4,16 @@ import ArticleDetailMedia from "./ArticleDetailMedia";
 import ArticleDetailComment from "./ArticleDetailComment";
 import { INewFeed } from "../../../../model/newFeed";
 import { MobileComment } from "./detail-mobile/MobileComment";
-import { Comments } from "../Comments";
 
 interface IProps {
   item: INewFeed;
   setIsShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
-  settingRef: React.MutableRefObject<null>;
+  settingRef?: React.MutableRefObject<null>;
 }
 export const ArticleDetail = ({
   item,
   setIsShowDetail,
-}: IProps,{children}:any): JSX.Element => {
+}: IProps): JSX.Element => {
   const settingRef = useRef(null);
   const [check, setCheck] = useState(false);
   useOnClickOutside(settingRef, () => setIsShowDetail(false));
