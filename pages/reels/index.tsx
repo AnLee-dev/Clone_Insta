@@ -3,7 +3,7 @@ import { Reel } from "@/components/Organisms/Reels/index";
 import { TReels } from "@/model/reels";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { save } from "@/store/slice/reels";
-import { InferGetServerSidePropsType, InferGetStaticPropsType } from "next";
+import { InferGetStaticPropsType } from "next";
 import { useEffect } from "react";
 
 export const getStaticProps = async () => {
@@ -27,9 +27,8 @@ function ReelPage({
   }, [_reels, dispatch]);
   
   const reels = useAppSelector((state) => state.reels.data);
-  console.log('reels', reels);
   
-  return <Reel reels={reels} />;
+  return (reels.length && <Reel reels={reels} />);
 }
 
 export default ReelPage;

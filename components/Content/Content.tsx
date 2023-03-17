@@ -3,8 +3,12 @@ import { Posts } from "./Posts";
 import { Stories } from "../../components/Molecules/Stories/index";
 import Suggestions from "./Suggestions";
 import { SwitchAccounts } from "./SwitchAccounts";
+import { INewFeed } from "@/model/newFeed";
 
-function Content() {
+interface IProps {
+  article: INewFeed[];
+}
+function Content({ article }: IProps): JSX.Element {
   return (
     <div className="w-full md:ml-[71px] lg:ml-[71px] xl:ml-[336px] h-screen lg:w-[calc(100vw-71px)] ssm:w-[70%] ssm:m-auto md:w-[100%]">
       <div className="m-auto mt-[48px] h-screen lg:w-[853px] w-full">
@@ -14,7 +18,7 @@ function Content() {
               <Stories />
             </div>
             <div className="h-full">
-              <Posts />
+              <Posts article={article} />
             </div>
           </div>
           <div className="w-[319px] h-screen mt-[5px] lg:block hidden">

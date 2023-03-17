@@ -4,6 +4,7 @@ import ArticleDetailMedia from "./ArticleDetailMedia";
 import ArticleDetailComment from "./ArticleDetailComment";
 import { INewFeed } from "../../../../model/newFeed";
 import { MobileComment } from "./detail-mobile/MobileComment";
+import { Comments } from "../Comments";
 
 interface IProps {
   item: INewFeed;
@@ -13,7 +14,7 @@ interface IProps {
 export const ArticleDetail = ({
   item,
   setIsShowDetail,
-}: IProps): JSX.Element => {
+}: IProps,{children}:any): JSX.Element => {
   const settingRef = useRef(null);
   const [check, setCheck] = useState(false);
   useOnClickOutside(settingRef, () => setIsShowDetail(false));

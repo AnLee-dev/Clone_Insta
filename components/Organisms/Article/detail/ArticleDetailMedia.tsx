@@ -24,7 +24,7 @@ export const ArticleDetailMedia = ({ item }: IProps): JSX.Element => {
     <div className="mb:hidden md:block navigation-wrapper relative flex h-[100%] w-[55%] items-center justify-center bg-c3">
       <div className="keen-slider flex h-[100%]" ref={sliderRef}>
         <div className="flex items-center justify-center h-[100%]">
-          {item.carousel_media.images.map((i, idx) => {
+          {item?.carousel_media.images.map((i, idx) => {
             return (
               <img
                 src={i.src}

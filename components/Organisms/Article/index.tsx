@@ -5,14 +5,16 @@ import { Comments } from "./Comments";
 import { HeaderArticle } from "./HeaderArticle";
 import { Like } from "./Like";
 import { ReactArticle } from "./ReactArticle";
-import { useAppSelector } from "../../../store/hooks";
+import { INewFeed } from "@/model/newFeed";
 
-export const Article = () => {
-  const newFeeds = useAppSelector((state) => (state.newFeed.data))
+interface IProp {
+  article: INewFeed[];
+}
+export const Article = ({ article }: IProp) => {
 
   return (
     <div className="w-full">
-      {newFeeds.map((item, idx) => (
+      {article.map((item, idx) => (
         <Fragment key={idx}>
           <HeaderArticle
             accountImage={item.user.profile_pic_url}
@@ -21,15 +23,17 @@ export const Article = () => {
           />
           <Carousel item={item} />
           <div className="w-full">
-            <ReactArticle item={item}/>
+            <ReactArticle item={item} />
             <Like like={item.like_count} />
-            <Caption nickName={item.user.username} caption={item.caption_text} />
+            <Caption
+              nickName={item.user.username}
+              caption={item.caption_text}
+            />
             <Comments item={item} />
           </div>
-          <hr className="mb-[20px]"/>
+          <hr className="mb-[20px]" />
         </Fragment>
       ))}
-
     </div>
   );
 };
