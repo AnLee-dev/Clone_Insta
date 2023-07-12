@@ -6,8 +6,9 @@ import { ReactArticle } from "../ReactArticle";
 import { useOnClickOutside } from "../../../../hooks/useClickOutSide";
 import { EMOJI } from "../../../../config/emoji";
 import * as ICON from "@/assets/svg";
+import { TPost } from "@/model/post/post";
 interface IProps {
-  item: INewFeed;
+  item: TPost;
 }
 export const ArticleDetailReactIcon = ({ item }: IProps): JSX.Element => {
   const [hasChange, setHasChange] = useState(false);
@@ -38,8 +39,8 @@ export const ArticleDetailReactIcon = ({ item }: IProps): JSX.Element => {
           <ReactArticle item={item} />
         </div>
         <div className="py-[6px]">
-          <Like like={item?.like_count} />
-          <PostTime time={item?.created_at} />
+          <Like like={item?.likeCount} />
+          <PostTime time={item?.createdAt.toString()} />
         </div>
       </div>
       <div>

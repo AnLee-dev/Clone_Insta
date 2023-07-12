@@ -78,8 +78,6 @@ export const Reel = ({ reels }: IProp): JSX.Element => {
     containerVideoRefs.current[idx] = el;
   }, []);
 
-  console.log('reel nho', reels);
-  
   return (
     <div className="h-[100vh] overflow-hidden w-full lg:w-[calc(100%-71px)] lg:ml-[71px] xl:w-[calc(100%-250px)] xl:ml-[250px] 2xl:w-[calc(100%-336px)] 2xl:ml-[336px] ssm:w-[100%] md:w-[100%]">
       <div

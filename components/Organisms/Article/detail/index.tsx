@@ -4,12 +4,14 @@ import ArticleDetailMedia from "./ArticleDetailMedia";
 import ArticleDetailComment from "./ArticleDetailComment";
 import { INewFeed } from "../../../../model/newFeed";
 import { MobileComment } from "./detail-mobile/MobileComment";
+import { TPost } from "@/model/post/post";
 
 interface IProps {
-  item: INewFeed;
+  item: TPost;
   setIsShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
   settingRef?: React.MutableRefObject<null>;
 }
+
 export const ArticleDetail = ({
   item,
   setIsShowDetail,

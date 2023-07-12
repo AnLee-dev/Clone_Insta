@@ -1,11 +1,12 @@
 import { configureStore,combineReducers, ThunkAction, Action } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
 import navReducer from './slice/nav'
 import storiesReducer from './slice/stories'
 import accountUserReducer from './slice/switchAccounts'
 import newFeedReducer from './slice/new_feed'
 import exploreReducer from './slice/explore'
-import { createWrapper } from 'next-redux-wrapper';
 import reelsReducer from './slice/reels';
+import tokenReducer from './slice/jwtToken';
 
 const rootReducer = combineReducers({
     nav: navReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     accountUser: accountUserReducer,
     newFeed: newFeedReducer,
     reels: reelsReducer,
-    explore: exploreReducer
+    explore: exploreReducer,
+    jwtTokens: tokenReducer,
 })
 
 export const store = configureStore({

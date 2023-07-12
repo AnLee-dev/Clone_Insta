@@ -4,8 +4,9 @@ import { PostTime } from "../../../Molecules/Article/PostTime";
 import { Caption } from "../Caption";
 import { useOnClickOutside } from "../../../../hooks/useClickOutSide";
 import { INewFeed } from "../../../../model/newFeed";
+import { TPost } from "@/model/post/post";
 interface IProps {
-  item: INewFeed;
+  item: TPost;
 }
 export const CommentDetail = ({ item }: IProps): JSX.Element => {
   const settingRef = useRef(null);
@@ -18,7 +19,7 @@ export const CommentDetail = ({ item }: IProps): JSX.Element => {
   useOnClickOutside(settingRef, () => setIsShowOptionsDetailComment(false));
   return (
     <Fragment>
-      {item?.comments.map((item, idx) => (
+      {item?.comment.map((item, idx) => (
         <div className="mb-[16px] flex w-full items-center justify-center" key={idx}>
           <div className="group flex w-full justify-between">
             <div className=" flex w-full">
@@ -27,13 +28,13 @@ export const CommentDetail = ({ item }: IProps): JSX.Element => {
               </div>
               <div className="ml-[10px] w-[80%] items-center">
                 <div className="w-full">
-                  <Caption nickName={item.user.username} caption={item.text} />
+                  <Caption nickName={item.user.user_name} caption={item.user.user_bio} />
                 </div>
                 <div className="flex gap-[10px]">
-                  <PostTime time={item.created_at} className="!text-[12px]" />
+                  <PostTime time={item.create_at.toString()} className="!text-[12px]" />
                   <div>
                     <div className="text-[12px] font-semibold text-c3">
-                      {item.comment_like_count}
+                      {item.like_count}
                       <span className=""> lượt thích</span>
                     </div>
                   </div>

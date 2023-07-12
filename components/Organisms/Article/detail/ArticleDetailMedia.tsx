@@ -3,9 +3,10 @@ import { useKeenSlider } from "keen-slider/react";
 import { useState } from "react";
 import { Arrow } from "../../../Molecules/Arrow";
 import { INewFeed } from "../../../../model/newFeed";
+import { TPost } from "@/model/post/post";
 
 interface IProps {
-  item: INewFeed;
+  item: TPost;
 }
 export const ArticleDetailMedia = ({ item }: IProps): JSX.Element => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -24,10 +25,10 @@ export const ArticleDetailMedia = ({ item }: IProps): JSX.Element => {
     <div className="mb:hidden md:block navigation-wrapper relative flex h-[100%] w-[55%] items-center justify-center bg-c3">
       <div className="keen-slider flex h-[100%]" ref={sliderRef}>
         <div className="flex items-center justify-center h-[100%]">
-          {item?.carousel_media.images.map((i, idx) => {
+          {item?.media.map((i, idx) => {
             return (
               <img
-                src={i.src}
+                src={i.mediaUrl}
                 alt="content"
                 className="keen-slider__slide w-full h-full"
                 key={idx}

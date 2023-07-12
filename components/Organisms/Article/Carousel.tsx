@@ -3,10 +3,10 @@
 import { useKeenSlider } from "keen-slider/react";
 import { useState } from "react";
 import { Arrow } from "../../Molecules/Arrow";
-import { INewFeed } from "../../../model/newFeed";
+import { TPost } from "@/model/post/post";
 
 interface IProps {
-  item: INewFeed;
+  item: TPost;
 }
 export const Carousel = ({ item }: IProps): JSX.Element => {
   const [post, setPost] = useState([]);
@@ -27,9 +27,9 @@ export const Carousel = ({ item }: IProps): JSX.Element => {
     <div className="navigation-wrapper relative">
       <div className="keen-slider w-full" ref={sliderRef}>
         {
-          item.carousel_media.images.map((i, idx) => (
+          item.media.map((i, idx) => (
             <img
-              src={i.src}
+              src={i.mediaUrl}
               alt="content"
               className="keen-slider__slide w-full"
               key={idx}
@@ -39,7 +39,7 @@ export const Carousel = ({ item }: IProps): JSX.Element => {
         {loaded && instanceRef.current && (
           <div className="dots absolute bottom-0 right-[50%] flex items-center justify-center py-[10px] translate-x-1/2">
             {[
-              ...Array(instanceRef.current.track.details.slides.length).keys(),
+              ...Array(instanceRef?.current?.track?.details?.slides?.length).keys(),
             ].map((idx) => {
               return (
                 <button
@@ -71,7 +71,7 @@ export const Carousel = ({ item }: IProps): JSX.Element => {
             </div>
           )}
           {currentSlide ===
-          instanceRef.current.track.details.slides.length - 1 ? (
+          instanceRef?.current?.track?.details?.slides?.length - 1 ? (
             ""
           ) : (
             <div className="absolute top-[50%] right-0">
@@ -81,7 +81,7 @@ export const Carousel = ({ item }: IProps): JSX.Element => {
                 }
                 disabled={
                   currentSlide ===
-                  instanceRef.current.track.details.slides.length - 1
+                  instanceRef?.current?.track?.details?.slides?.length - 1
                 }
               />
             </div>

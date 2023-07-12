@@ -5,9 +5,10 @@ import { CommentDetail } from "../CommentDetail";
 import { INewFeed } from "@/model/newFeed";
 import * as ICON from "@/assets/svg";
 import { AccountAvt } from "@/components/Molecules/Article/AccountAvt";
+import { TPost } from "@/model/post/post";
 
 interface IProp {
-  item: INewFeed;
+  item: TPost;
 }
 export const MobileComment = ({ item }: IProp): JSX.Element => {
   const [hasChange, setHasChange] = useState(false);
@@ -49,12 +50,12 @@ export const MobileComment = ({ item }: IProp): JSX.Element => {
             <div className="ml-[10px] w-[80%] items-center">
               <div className="w-full">
                 <Caption
-                  nickName={item?.user.username}
+                  nickName={item?.user.user_name}
                   caption={item?.caption_text}
                 />
               </div>
               <div>
-                <PostTime time={item?.created_at} className="!text-[12px]" />
+                <PostTime time={item?.create_at.toString()} className="!text-[12px]" />
               </div>
             </div>
           </div>

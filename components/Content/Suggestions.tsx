@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { NickName } from "../../components/Molecules/Article/NickName";
 import { useAppSelector } from "../../store/hooks";
 

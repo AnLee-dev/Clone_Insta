@@ -3,10 +3,10 @@ import { useRef, useState } from "react";
 import { EMOJI } from "../../../config/emoji";
 import { useOnClickOutside } from "../../../hooks/useClickOutSide";
 import { ArticleDetail } from "./detail";
-import { INewFeed } from "../../../model/newFeed";
 import Link from "next/link";
+import { TPost } from "@/model/post/post";
 export interface IProps {
-  item: INewFeed;
+  item: TPost;
 }
 export const Comments = ({ item }: IProps, { children }: any): JSX.Element => {
   const [hasChange, setHasChange] = useState(false);
@@ -22,11 +22,11 @@ export const Comments = ({ item }: IProps, { children }: any): JSX.Element => {
     <div className="mt-[10px] w-full">
       {children}
       <div className="">
-        {item.comments.length > 0 && (
+        {item.comment.length > 0 && (
           <div className="cursor-pointer">
             <Link href={`/p/${item.id}`}>
             <span>
-              Xem tất cả {item.comments.length} bình luận
+              Xem tất cả {item.comment.length} bình luận
             </span>
             </Link>
           </div>

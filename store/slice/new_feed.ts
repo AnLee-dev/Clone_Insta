@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { INewFeed } from "../../model/newFeed";
 import { toogleLike } from "../actionCreator/feed";
+import { TPost } from "@/model/post/post";
 
 interface INewFeeds {
-  data: INewFeed[];
+  data: TPost[];
   hasErr: boolean;
   message: "";
 }
@@ -27,12 +27,12 @@ const newFeedSlice = createSlice({
     builder.addCase(toogleLike.fulfilled, (state, action) => {
       state.data.forEach((i) => {
         if (i.id === action.payload) {
-          if (i.has_liked) {
-            i.like_count--;
+          if (i.hasLike) {
+            i.likeCount--;
           } else {
-            i.like_count++;
+            i.likeCount++;
           }
-          i.has_liked = !i.has_liked;
+          i.hasLike = !i.hasLike;
         }
       });
     });

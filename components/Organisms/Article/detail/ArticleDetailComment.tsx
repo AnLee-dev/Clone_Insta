@@ -6,10 +6,10 @@ import { Options } from "../../../Molecules/Options/Options";
 import { PostTime } from "../../../Molecules/Article/PostTime";
 import { Caption } from "../Caption";
 import { CommentDetail } from "./CommentDetail";
-import { INewFeed } from "../../../../model/newFeed";
 import { ArticleDetailReactIcon } from "./ArticleDetailReactIcon";
+import { TPost } from "@/model/post/post";
 interface IProps {
-  item: INewFeed;
+  item: TPost;
   settingRef: React.MutableRefObject<null>;
   setCheck: React.Dispatch<React.SetStateAction<boolean>>;
   check: boolean;
@@ -27,11 +27,11 @@ export const ArticleDetailComment = ({ item }: IProps): JSX.Element => {
       <div className="flex h-[60px] w-full items-center justify-between border-b-[1px] py-[14px] pl-[16px]">
         <div className="flex w-[90%]">
           <div className="ssm:w-[15%] sm:w-[10%]">
-            <AccountAvt src={item?.user.profile_pic_url} />
+            <AccountAvt src={item?.userId.profilePicUrl} />
           </div>
           <div className="ml-[10px] flex w-[88%] items-center truncate">
             <div>
-              <NickName nickName={item?.user.username} />
+              <NickName nickName={item?.userId.userName} />
             </div>
           </div>
         </div>
@@ -62,17 +62,17 @@ export const ArticleDetailComment = ({ item }: IProps): JSX.Element => {
         <div className="mb-[16px] flex w-full items-center justify-center">
           <div className="flex w-full">
             <div className="ssm:w-[15%] sm:w-[10%]">
-              <AccountAvt src={item?.user.profile_pic_url} />
+              <AccountAvt src={item?.userId.profilePicUrl} />
             </div>
             <div className="ml-[10px] w-[80%] items-center">
               <div className="w-full">
                 <Caption
-                  nickName={item?.user.username}
-                  caption={item?.caption_text}
+                  nickName={item?.userId.userName}
+                  caption={item?.captionText}
                 />
               </div>
               <div>
-                <PostTime time={item?.created_at} className="!text-[12px]" />
+                <PostTime time={item?.createdAt.toString()} className="!text-[12px]" />
               </div>
             </div>
           </div>

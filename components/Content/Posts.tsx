@@ -1,13 +1,14 @@
+import { TPost } from "@/model/post/post";
 import { Article } from "../../components/Organisms/Article";
 import { INewFeed } from "@/model/newFeed";
 
 interface IProp {
-  article: INewFeed[];
+  post: TPost[];
 }
-export const Posts = ({ article }: IProp): JSX.Element => {
+export const Posts = ({ post }: IProp): JSX.Element => {
   return (
     <div>
-      <Article article={article} />
+      <Article post={post} />
     </div>
   );
 };

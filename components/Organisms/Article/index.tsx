@@ -5,29 +5,29 @@ import { Comments } from "./Comments";
 import { HeaderArticle } from "./HeaderArticle";
 import { Like } from "./Like";
 import { ReactArticle } from "./ReactArticle";
-import { INewFeed } from "@/model/newFeed";
+import { TPost } from "@/model/post/post";
 
 interface IProp {
-  article: INewFeed[];
+  post: TPost[];
 }
-export const Article = ({ article }: IProp) => {
+export const Article = ({ post }: IProp) => {
 
   return (
     <div className="w-full">
-      {article.map((item, idx) => (
+      { post.length && post?.map((item, idx) => (
         <Fragment key={idx}>
           <HeaderArticle
-            accountImage={item.user.profile_pic_url}
-            nickName={item.user.username}
-            timePost={item.created_at}
+            accountImage={item?.userId[0]?.profilePicUrl}
+            nickName={item?.userId[0].userName}
+            timePost={item?.createdAt.toString()}
           />
           <Carousel item={item} />
           <div className="w-full">
             <ReactArticle item={item} />
-            <Like like={item.like_count} />
+            <Like like={item?.likeCount} />
             <Caption
-              nickName={item.user.username}
-              caption={item.caption_text}
+              nickName={item?.userId[0].userName}
+              caption={item?.captionText}
             />
             <Comments item={item} />
           </div>
