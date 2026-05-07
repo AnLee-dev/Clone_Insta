@@ -1,5 +1,5 @@
-import { useAppSelector } from "@/store/hooks";
-import * as ICON from "@/assets/svg";
+import { useAppSelector } from "../../store/hooks";
+import * as ICON from "../../assets/svg";
 import clsx from "clsx";
 
 export const NavMobileTop = () => {

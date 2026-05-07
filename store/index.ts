@@ -3,10 +3,16 @@ import { createWrapper } from 'next-redux-wrapper';
 import navReducer from './slice/nav'
 import storiesReducer from './slice/stories'
 import accountUserReducer from './slice/switchAccounts'
-import newFeedReducer from './slice/new_feed'
+import newFeedReducer from './slice/posts'
 import exploreReducer from './slice/explore'
 import reelsReducer from './slice/reels';
-import tokenReducer from './slice/jwtToken';
+import { authReducer } from './auth/reducer';
+import { createEpicMiddleware, combineEpics } from 'redux-observable';
+import { loginEpic } from './auth/epics';
+import { AuthAction } from './auth/actions';
+import { AuthState } from '@/model/auth/types';
+
+export type RootState = ReturnType<typeof rootReducer>
 
 const rootReducer = combineReducers({
     nav: navReducer,
@@ -15,20 +21,29 @@ const rootReducer = combineReducers({
     newFeed: newFeedReducer,
     reels: reelsReducer,
     explore: exploreReducer,
-    jwtTokens: tokenReducer,
+    auth: authReducer,
 })
 
-export const store = configureStore({
-  reducer: rootReducer,
-})
-
-const makeStore = () => store
+const epicMiddleware = createEpicMiddleware<AuthAction, AuthAction, RootState>();
 
 
+const makeStore = () => {
+  const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+      }).concat(epicMiddleware as any),
+  });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+  epicMiddleware.run(combineEpics(loginEpic));
+
+  return store;
+};
+
+export const store = makeStore();
+
+
 export type AppDispatch = typeof store.dispatch
 
 export type AppStore = ReturnType<typeof makeStore>;

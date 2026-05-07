@@ -1,8 +1,7 @@
 import { TUser } from "../user";
-import { TComment } from "./comment";
 
 export type TPost = {
-  userId: TUser;
+  userId: TUser[];
   media: [
     {
       mediaUrl: string;

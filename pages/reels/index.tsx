@@ -9,13 +9,14 @@ import { useEffect } from "react";
 export const getStaticProps = async () => {
   const res = await fetch(APP_API.reels.list);
   const reels: TReels[] = await res.json();
-
-  return {
-    props: {
-      _reels: reels,
-    },
-    revalidate: 600,
-  };
+  if(Array.isArray(reels)){
+    return {
+      props: {
+        _reels: reels,
+      },
+      revalidate: 600,
+    };
+  }
 };
 function ReelPage({
   _reels,

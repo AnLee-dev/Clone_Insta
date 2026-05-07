@@ -18,16 +18,16 @@ declare module 'next-auth' {
     };
   }
 
-  interface Session {
-    access_token: string;
-    refresh_token: string;
-    access_token_expiry: number;
-    error: string;
-    role: string;
-    email: string;
-    name: string;
-    role: string;
-  }
+  // interface Session {
+  //   access_token: string;
+  //   refresh_token: string;
+  //   access_token_expiry: number;
+  //   error: string;
+  //   role: string;
+  //   email: string;
+  //   name: string;
+  //   role: string;
+  // }
 
   interface JWT {
     access_token: string;

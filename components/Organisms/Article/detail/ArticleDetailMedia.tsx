@@ -2,7 +2,6 @@
 import { useKeenSlider } from "keen-slider/react";
 import { useState } from "react";
 import { Arrow } from "../../../Molecules/Arrow";
-import { INewFeed } from "../../../../model/newFeed";
 import { TPost } from "@/model/post/post";
 
 interface IProps {

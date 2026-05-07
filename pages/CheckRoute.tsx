@@ -1,6 +1,6 @@
-import { SectionEnum } from "@/constants/routes";
-import { useAppDispatch } from "@/store/hooks";
-import { setSectionSelect } from "@/store/slice/nav";
+import { SectionEnum } from "../constants/routes";
+import { useAppDispatch } from "../store/hooks";
+import { setSectionSelect } from "../store/slice/nav";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 

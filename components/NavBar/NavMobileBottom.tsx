@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useAppSelector } from "../../store/hooks";
-import * as ICON from "@/assets/svg";
+import * as ICON from "../../assets/svg";
 export const NavMobileBottom = () => {
   const sectionSelected = useAppSelector((state) => state.nav.sectionSelected);
 

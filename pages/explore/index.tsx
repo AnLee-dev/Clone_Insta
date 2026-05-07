@@ -1,14 +1,25 @@
 import { APP_API } from "@/apis";
 import { Explore } from "@/components/Organisms/Explore";
+import { getAuthorizationToken } from "@/mocks/mockmocksAuthorization";
 import { TExplore } from "@/model/explore";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { save } from "@/store/slice/explore";
 import { chunk } from "lodash";
-import { InferGetServerSidePropsType } from "next";
+import { InferGetStaticPropsType } from "next";
 import { useEffect } from "react";
 
-export const getServerSideProps = async () => {
-  const res = await fetch(APP_API.explore.list);
+export const getStaticProps = async () => {
+  const token = getAuthorizationToken;
+  const res = await fetch(APP_API.explore.list
+    , {
+      method: "GET",
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
   const explore: TExplore[] = await res.json();
 
   return {
@@ -20,7 +31,7 @@ export const getServerSideProps = async () => {
 
 function ExplorePage({
   _explore,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {

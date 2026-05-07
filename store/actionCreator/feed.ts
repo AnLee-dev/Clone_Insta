@@ -1,4 +1,4 @@
-import { APP_API } from "@/apis";
+import { APP_API } from "../../apis";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 

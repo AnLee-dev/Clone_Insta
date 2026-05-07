@@ -18,7 +18,7 @@ function Footer() {
         )}
       </div>
       <div className="text-[12px] font-normal text-c7 mt-[30px] uppercase">
-        © 2023 Instagram from Giô-suê
+        © 2023 Instagram from AnLee
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { DetailExplore } from "./DetailExplore";
 import { TExplore } from "@/model/explore";
 
 interface IProps {
-  item: TExplore[] | undefined[];
+  item: TExplore[] | undefined [];
   idx: number;
 }
 export const Explore = ({ item, idx }: IProps): JSX.Element => {
@@ -13,15 +13,15 @@ export const Explore = ({ item, idx }: IProps): JSX.Element => {
       <div className="w-[80%]">
         {(idx + 1) % 2 === 0 ? (
           <div className="mt-[2px] grid w-full grid-cols-3 gap-[2px] md:mt-[15px] md:gap-[15px]">
-            <DetailExplore src={item[0]?.src} isBig />
-            <DetailExplore src={item[1]?.src} />
-            <DetailExplore src={item[2]?.src} />
+            <DetailExplore src={item[0]?.media[0].mediaUrl} isBig />
+            <DetailExplore src={item[1]?.media[0].mediaUrl} />
+            <DetailExplore src={item[2]?.media[0].mediaUrl} />
           </div>
         ) : (
         <div className="mt-[2px] grid w-full grid-cols-3 gap-[2px] md:mt-[15px] md:gap-[15px]">
-          <DetailExplore src={item[0]?.src} />
-          <DetailExplore src={item[1]?.src} isBig />
-          <DetailExplore src={item[2]?.src} />
+          <DetailExplore src={item[0]?.media[0]?.mediaUrl} />
+          <DetailExplore src={item[1]?.media[0]?.mediaUrl} isBig />
+          <DetailExplore src={item[2]?.media[0]?.mediaUrl} />
         </div>)}
       </div>
     </div>

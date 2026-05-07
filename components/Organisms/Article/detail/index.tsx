@@ -2,7 +2,6 @@ import { Fragment, useRef, useState } from "react";
 import { useOnClickOutside } from "../../../../hooks/useClickOutSide";
 import ArticleDetailMedia from "./ArticleDetailMedia";
 import ArticleDetailComment from "./ArticleDetailComment";
-import { INewFeed } from "../../../../model/newFeed";
 import { MobileComment } from "./detail-mobile/MobileComment";
 import { TPost } from "@/model/post/post";
 
@@ -18,8 +17,7 @@ export const ArticleDetail = ({
 }: IProps): JSX.Element => {
   const settingRef = useRef(null);
   const [check, setCheck] = useState(false);
-  useOnClickOutside(settingRef, () => setIsShowDetail(false));
-
+  useOnClickOutside(settingRef, () => {setIsShowDetail(false),  console.log('test data')});
   return (
     <Fragment>
       <div className="mb:hidden md:block">

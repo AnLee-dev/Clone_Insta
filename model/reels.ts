@@ -4,6 +4,7 @@ export type TReels = {
   like_count: number;
   total_comment: number;
   media: TMedia;
+  hasLike: false;
   id: number;
 };
 

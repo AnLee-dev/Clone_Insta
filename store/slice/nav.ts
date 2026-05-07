@@ -1,4 +1,4 @@
-import { SectionEnum } from "@/constants/routes";
+import { SectionEnum } from "../../constants/routes";
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit/dist/createAction";
 

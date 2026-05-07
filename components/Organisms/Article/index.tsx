@@ -11,14 +11,14 @@ interface IProp {
   post: TPost[];
 }
 export const Article = ({ post }: IProp) => {
-
+  const postData = Array.isArray(post) ? post : [];
   return (
     <div className="w-full">
-      { post.length && post?.map((item, idx) => (
+      { postData.map((item, idx) => (
         <Fragment key={idx}>
           <HeaderArticle
             accountImage={item?.userId[0]?.profilePicUrl}
-            nickName={item?.userId[0].userName}
+            nickName={item?.userId[0]?.userName}
             timePost={item?.createdAt.toString()}
           />
           <Carousel item={item} />
@@ -26,7 +26,7 @@ export const Article = ({ post }: IProp) => {
             <ReactArticle item={item} />
             <Like like={item?.likeCount} />
             <Caption
-              nickName={item?.userId[0].userName}
+              nickName={item?.userId[0]?.userName}
               caption={item?.captionText}
             />
             <Comments item={item} />

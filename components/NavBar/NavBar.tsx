@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { useOnClickOutside } from "../../hooks/useClickOutSide";
-import * as ICON from "@/assets/svg";
+import * as ICON from "../../assets/svg";
 import Link from "next/link";
 
 function NavBar() {

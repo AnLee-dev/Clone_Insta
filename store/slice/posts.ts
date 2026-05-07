@@ -15,7 +15,7 @@ const initialState: INewFeeds = {
 };
 
 const newFeedSlice = createSlice({
-  name: "new-feed",
+  name: "posts",
   initialState,
   reducers: {
     save: (state, action) => {
