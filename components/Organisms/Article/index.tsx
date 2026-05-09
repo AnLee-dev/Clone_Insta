@@ -5,7 +5,7 @@ import { Comments } from "./Comments";
 import { HeaderArticle } from "./HeaderArticle";
 import { Like } from "./Like";
 import { ReactArticle } from "./ReactArticle";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 
 interface IProp {
   post: TPost[];

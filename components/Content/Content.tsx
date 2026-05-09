@@ -4,7 +4,7 @@ import { Stories } from "../../components/Molecules/Stories/index";
 import Suggestions from "./Suggestions";
 import { SwitchAccounts } from "./SwitchAccounts";
 import { INewFeed } from "@/model/newFeed";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 
 interface IProps {
   post: TPost[];

@@ -1,8 +1,8 @@
-import { APP_API } from "@/apis";
-import Content from "@/components/Content/Content";
-import { TPost } from "@/model/post/post";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { save } from "@/store/slice/posts";
+import { APP_API } from "../apis";
+import Content from "../components/Content/Content";
+import { TPost } from "@/model/post";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { save } from "../store/slice/posts";
 import { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import React, { useEffect } from "react";
 

@@ -3,30 +3,28 @@ export interface LoginPayload {
   password: string;
 }
 
-export interface AuthTokens {
-  access: {
-    token: string;
-    expires: string;
-  };
-  refresh: {
-    token: string;
-    expires: string;
-  };
-}
-
 export interface AuthState {
   token: string | null;
   loading: boolean;
   error: string | null;
 }
 
+export interface AuthToken {
+  token: string;
+  expires: string;
+}
+
 export interface LoginResponse {
   user: {
     id: string;
-    name: string;
+    userName: string;
+    fullName: string;
+    profilePicUrl: string;
     email: string;
-    avatar?: string;
     isEmailVerified: boolean;
   };
-  tokens: AuthTokens;
+  tokens: {
+    access: AuthToken;
+    refresh: AuthToken;
+  };
 }

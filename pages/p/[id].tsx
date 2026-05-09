@@ -2,7 +2,7 @@ import { APP_API } from "@/apis";
 import Content from "@/components/Content/Content";
 import { ArticleDetail } from "@/components/Organisms/Article/detail";
 import { useOnClickOutside } from "@/hooks/useClickOutSide";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { save } from "@/store/slice/posts";
 import { InferGetServerSidePropsType } from "next";

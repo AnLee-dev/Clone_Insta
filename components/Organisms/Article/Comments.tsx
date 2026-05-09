@@ -4,7 +4,7 @@ import { EMOJI } from "../../../config/emoji";
 import { useOnClickOutside } from "../../../hooks/useClickOutSide";
 import { ArticleDetail } from "./detail";
 import Link from "next/link";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 export interface IProps {
   item: TPost;
 }

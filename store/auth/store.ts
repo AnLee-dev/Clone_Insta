@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware, combineEpics, Epic } from 'redux-observable';
 import { authReducer } from './reducer';
 import { AuthAction } from './actions';
-import { AuthState } from '@/model/auth/types';
+import { AuthState } from '@/model/auth';
 import { loginEpic } from './epics';
 
 // ✅ Khai báo rõ type cho Epic

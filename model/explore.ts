@@ -1,27 +1,19 @@
+import { TComment } from "./comment";
+
 export type TExplore = {
+  id: string;
   postId: string,
-  media: [
-    {
-      mediaUrl: {
-        type: string,
-        required: true,
-      },
-      poster: {
-        type: string,
-        required: true,
-        default: '',
-      },
-    },
-  ],
-  likeCount: {
-    type: number,
-    default: 0,
-    required: false,
-  },
-  comment: Comment[],
+  media: TExploreMedia[],
+  likeCount: number,
+  comment: TExploreComment[],
 };
 
-export type Comment = {
-  comment_like_count: number
-  id: string
-}
+export type TExploreMedia = {
+  mediaUrl: string;
+  poster: string;
+};
+
+export type TExploreComment = {
+  id: string;
+  comment_like_count: number;
+};

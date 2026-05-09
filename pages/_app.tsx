@@ -8,27 +8,39 @@ import Head from "next/head";
 import CheckRoute from "./CheckRoute";
 import { Fragment } from "react";
 import MainLayout from "../components/layout/MainLayout";
-import '../assets/css/globals.css';
+// import '../assets/css/globals.css';
+import { useRouter } from "next/router";
+import "../assets/css/globals.css"
 
+const AUTH_ROUTES = ['/login', 'register'];
 
-export default function App({ Component, pageProps}: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const isAuthPage = AUTH_ROUTES.includes(router.pathname);
+
   return (
     <Fragment>
       <Head>
         <title>Mystagram</title>
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
-        <Provider store={store}>
-          <MainLayout>
-            <CheckRoute />
-            <NavMobileTop />
-            <div className="flex w-full mb:h-[calc(100vh-49px)] lg:h-[100vh] [&__svg]:cursor-pointer ">
-              <NavBar />
-              <Component {...pageProps} />
-            </div>
-            <NavMobileBottom />
-          </MainLayout>
-        </Provider>
+      <Provider store={store}>
+        <MainLayout>
+          {isAuthPage ? (
+            <Component {...pageProps} />
+          ) : (
+            <>
+              <CheckRoute />
+              <NavMobileTop />
+              <div className="flex w-full mb:h-[calc(100vh-49px)] lg:h-[100vh] [&__svg]:cursor-pointer">
+                <NavBar />
+                <Component {...pageProps} />
+              </div>
+              <NavMobileBottom />
+            </>
+          )}
+        </MainLayout>
+      </Provider>
     </Fragment>
   );
 }

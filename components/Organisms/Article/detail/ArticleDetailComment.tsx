@@ -7,7 +7,7 @@ import { PostTime } from "../../../Molecules/Article/PostTime";
 import { Caption } from "../Caption";
 import { CommentDetail } from "./CommentDetail";
 import { ArticleDetailReactIcon } from "./ArticleDetailReactIcon";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 interface IProps {
   item: TPost;
   settingRef: React.MutableRefObject<null>;

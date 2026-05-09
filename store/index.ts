@@ -10,7 +10,7 @@ import { authReducer } from './auth/reducer';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
 import { loginEpic } from './auth/epics';
 import { AuthAction } from './auth/actions';
-import { AuthState } from '@/model/auth/types';
+import { AuthState } from '@/model/auth';
 
 export type RootState = ReturnType<typeof rootReducer>
 

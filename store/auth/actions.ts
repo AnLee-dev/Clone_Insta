@@ -1,4 +1,4 @@
-import { LoginPayload } from '@/model/auth/types';
+import { LoginPayload } from '@/model/auth';
 
 export const LOGIN_REQUEST = 'auth/LOGIN_REQUEST' as const;
 export const LOGIN_SUCCESS = 'auth/LOGIN_SUCCESS' as const;

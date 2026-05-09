@@ -6,7 +6,7 @@ import { ReactArticle } from "../ReactArticle";
 import { useOnClickOutside } from "../../../../hooks/useClickOutSide";
 import { EMOJI } from "../../../../config/emoji";
 import * as ICON from "@/assets/svg";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 interface IProps {
   item: TPost;
 }

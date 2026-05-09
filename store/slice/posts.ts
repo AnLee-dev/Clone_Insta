@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toogleLike } from "../actionCreator/feed";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 
 interface INewFeeds {
   data: TPost[];

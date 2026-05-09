@@ -1,4 +1,4 @@
-enum roleSelected {
+export enum roleSelected {
   "user",
   "admin",
 };
@@ -8,10 +8,12 @@ export type TUser = {
   userName: string,
   fullName: string,
   profilePicUrl: string,
-  userBio: string,
+  userBio?: string,
   email: string,
   role: roleSelected,
-  isEmailVerified: Date,
+  isEmailVerified: boolean,
+  following?: boolean; 
+  outgoing_request?: boolean; 
   createdAt: Date,
   updatedAt: Date
 };

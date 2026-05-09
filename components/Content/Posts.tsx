@@ -1,4 +1,4 @@
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 import { Article } from "../../components/Organisms/Article";
 import { INewFeed } from "@/model/newFeed";
 

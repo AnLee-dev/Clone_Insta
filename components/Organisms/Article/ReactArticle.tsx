@@ -1,8 +1,8 @@
-import { toogleLike } from "@/store/actionCreator/feed";
-import { useAppDispatch } from "@/store/hooks";
-import * as ICON from "@/assets/svg";
+import { toogleLike } from "../../../store/actionCreator/feed";
+import { useAppDispatch } from "../../../store/hooks";
+import * as ICON from "../../../assets/svg";
 import Link from "next/link";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 interface IProp {
   item: TPost;
 }

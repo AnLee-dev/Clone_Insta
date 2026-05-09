@@ -5,7 +5,7 @@ import { CommentDetail } from "../CommentDetail";
 import { INewFeed } from "@/model/newFeed";
 import * as ICON from "@/assets/svg";
 import { AccountAvt } from "@/components/Molecules/Article/AccountAvt";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 
 interface IProp {
   item: TPost;

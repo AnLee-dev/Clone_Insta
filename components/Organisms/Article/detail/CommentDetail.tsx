@@ -4,7 +4,7 @@ import { PostTime } from "../../../Molecules/Article/PostTime";
 import { Caption } from "../Caption";
 import { useOnClickOutside } from "../../../../hooks/useClickOutSide";
 import { INewFeed } from "../../../../model/newFeed";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 interface IProps {
   item: TPost;
 }

@@ -1,9 +1,9 @@
 import { Epic, ofType } from 'redux-observable';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { from, of } from 'rxjs';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { AuthAction, LOGIN_REQUEST, loginSuccess, loginFailure } from './actions';
-import { AuthState, LoginResponse } from './types';
+import { LoginResponse } from '../../model/auth';
 import axiosInstance from '../../hooks/axiosInstance';
 import { RootState } from '..';
 

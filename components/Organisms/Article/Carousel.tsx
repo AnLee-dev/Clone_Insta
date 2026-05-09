@@ -3,7 +3,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import { useState } from "react";
 import { Arrow } from "../../Molecules/Arrow";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 
 interface IProps {
   item: TPost;

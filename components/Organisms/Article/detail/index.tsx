@@ -3,7 +3,7 @@ import { useOnClickOutside } from "../../../../hooks/useClickOutSide";
 import ArticleDetailMedia from "./ArticleDetailMedia";
 import ArticleDetailComment from "./ArticleDetailComment";
 import { MobileComment } from "./detail-mobile/MobileComment";
-import { TPost } from "@/model/post/post";
+import { TPost } from "@/model/post";
 
 interface IProps {
   item: TPost;
