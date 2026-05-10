@@ -9,7 +9,6 @@ interface IProps {
   item: TPost;
 }
 export const Carousel = ({ item }: IProps): JSX.Element => {
-  const [post, setPost] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({

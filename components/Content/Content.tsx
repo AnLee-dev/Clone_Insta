@@ -3,14 +3,12 @@ import { Posts } from "./Posts";
 import { Stories } from "../../components/Molecules/Stories/index";
 import Suggestions from "./Suggestions";
 import { SwitchAccounts } from "./SwitchAccounts";
-import { INewFeed } from "@/model/newFeed";
 import { TPost } from "@/model/post";
 
 interface IProps {
   post: TPost[];
 }
 function Content({ post }: IProps): JSX.Element {
-    console.log('data:', post)
   return (
     <div className="w-full md:ml-[71px] lg:ml-[71px] xl:ml-[336px] h-screen lg:w-[calc(100vw-71px)] ssm:w-[70%] ssm:m-auto md:w-[100%]">
       <div className="m-auto mt-[48px] h-screen lg:w-[853px] w-full">

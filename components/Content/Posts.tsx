@@ -1,6 +1,5 @@
-import { TPost } from "@/model/post";
+import { TPost } from "../../model/post";
 import { Article } from "../../components/Organisms/Article";
-import { INewFeed } from "@/model/newFeed";
 
 interface IProp {
   post: TPost[];

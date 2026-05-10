@@ -1,10 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from "react";
 import { NickName } from "../../components/Molecules/Article/NickName";
 import { useAppSelector } from "../../store/hooks";
 
 export const Suggestions = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const stories = useAppSelector((state) => state.stories.data.slice(0,5));
   
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
   return (
     <div className="mt-[20px] w-full">
       <div className="flex h-[19px] w-full justify-between">
@@ -23,7 +30,7 @@ export const Suggestions = () => {
                 <div className="flex h-[42px] w-[42px] items-center rounded-[50%]">
                   <div className="">
                     <img
-                      src={i.user.avatar}
+                      src={i.user.profilePicUrl}
                       alt="avt"
                       className="h-[32px] w-[32px] rounded-[50%] "
                     />
@@ -31,9 +38,9 @@ export const Suggestions = () => {
                 </div>
               </button>
               <div className="ml-[5px] flex w-[50%] flex-col items-start justify-center">
-                <NickName nickName={i.user.nick_name} />
+                <NickName nickName={i.user.userName} />
                 <div className="text-[12px] text-[#8E8E8E]">
-                  hehehehehehehhe
+                  {i.user.fullName}
                 </div>
               </div>
             </div>

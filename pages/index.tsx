@@ -54,6 +54,7 @@ function HomePage({
   }, [_post, dispatch]);
 
   const post = useAppSelector((state) => state.newFeed.data);
+    console.log("Data in index.ts: ", post)
   return post ? <Content post={post}/> :  null;
 }
 export default HomePage;
